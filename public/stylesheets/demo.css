@@ -1,0 +1,110 @@
+body {
+	margin: 0;
+	font-family: "Arial";
+	font-size: 14px;
+	line-height: 1.5;
+	background: #909090 url('/img/background.png');
+	text-align: center;
+}
+
+#container {
+	margin: 5% auto 0 auto;
+	display: block;
+	width: 690px; 
+}
+
+.title {
+	font-size: 30px;
+	font-family: Georgia;
+	font-style: italic;
+	font-weight: bold;
+	color: #161616;
+	margin: 2em 0 1em 0;
+	text-shadow: 0px 1px 0px #fff;
+	display: block;
+}
+
+ul {
+	margin-left: -3em;
+}
+
+#menu-css li, #menu-jquery li {
+	display: inline;
+	list-style: none; 
+}
+
+
+/* For CSS Menu */
+	
+#menu-css li a {
+	
+	/* Border Radius */
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	
+	/* Border Shadow */
+	-webkit-box-shadow: 1px 2px 2px rgba(0,0,0,0.6);
+	-moz-box-shadow: 1px 2px 2px rgba(0,0,0,0.6);
+	box-shadow: 1px 2px 2px rgba(0,0,0,0.6);
+	
+	/* Animation (Webkit, Gecko & Mozilla) */
+	-webkit-transition-duration: 0.20s;
+	-webkit-transition-timing-function: ease-out; 
+	-moz-transition-duration: 0.20s;
+	-moz-transition-timing-function: ease-out; 
+	
+	color: #ffffff;
+	background: rgba(0,0,0,0.2);
+	display: inline-block;
+	padding: 5px 15px;
+	outline: none;
+	text-decoration: none;
+}
+
+	#menu-css li a:hover {
+		background: rgba(0,0,0,0.5);
+		padding: 5px 25px;
+	}
+
+	#menu-css li a:active {
+		background: rgba(0,0,0,0.1);
+		-webkit-box-shadow: 1px 1px 1px rgba(0,0,0,0.4);
+		-moz-box-shadow: 1px 1px 1px rgba(0,0,0,0.4); 
+		box-shadow: 1px 1px 1px rgba(0,0,0,0.4); 
+	}
+	
+
+/* For jQuery Menu */
+
+#menu-jquery li a {
+	
+	/* Border Radius */
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	
+	/* Border Shadow */
+	-webkit-box-shadow: 1px 2px 2px rgba(0,0,0,0.6);
+	-moz-box-shadow: 1px 2px 2px rgba(0,0,0,0.6);
+	box-shadow: 1px 2px 2px rgba(0,0,0,0.6);
+	
+	color: #ffffff;
+	background: rgba(0,0,0,0.2);
+	display: inline-block;
+	padding: 5px 15px;
+	outline: none;
+	text-decoration: none;
+}
+
+	#menu-jquery li a:active {
+		-webkit-box-shadow: 1px 1px 1px rgba(0,0,0,0.4);
+		-moz-box-shadow: 1px 1px 1px rgba(0,0,0,0.4); 
+		box-shadow: 1px 1px 1px rgba(0,0,0,0.4); 
+	}
+	
+
+a, a:visited {
+	color: #161616;
+	text-decoration: none; 
+}

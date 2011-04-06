@@ -1,0 +1,12 @@
+<div id="main" role="main">
+    <p>Coming soon. An easier way to find and share bookmarks privately with your team.</p>
+    <p class="sub-text">We are currently in a closed Beta. Leave your email id and we will keep you updated.</p>
+</div>
+<% form_tag("/subscribe") do |s|  %>
+    <input type="text" class="small" name="email" />
+    <a href="#" class="css3-button-blue" onclick="document.forms[0].submit();">Subscribe</a>
+<% end %>
+<!-- On entering the email and submitting the text shown below has to be shown and the form hidden -->
+<% unless @message.nil? %>
+    <h3> <%= @message %> </h3>
+<% end %>
