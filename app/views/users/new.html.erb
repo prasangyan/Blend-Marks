@@ -1,0 +1,35 @@
+<div id="login-box-container">
+    <div id="center">
+        <%= image_tag "Logo-small.png" %>
+        <div id="login-box">
+       <%= form_for(@user) do |f| %>
+            <h1>Register</h1>
+            <% if @user.errors.any? %>
+                <div class="error">
+                    <p>We are unable to register your details, Please verify your inputs.</p>
+                </div>
+            <% end %>
+            <!-- Add class="error-fieldset" to the fieldset tag in case there is an error, this class has to be added to any fieldset that has an error -->
+            <fieldset>
+                <label>Email</label>
+                  <%= f.text_field :email, :class => "login-text" %>
+                <!-- Message to be shown below the filed which has a problem
+                <p>Improper email format</p>
+                -->
+            </fieldset>
+            <fieldset>
+                <label>Password</label>
+                <%= f.password_field :password, :class => "login-text" %>
+            </fieldset>
+            <fieldset>
+                <label>Confirm Password</label>
+                <%= f.password_field :password_confirmation, :class => "login-text" %>
+            </fieldset>
+            <fieldset>
+                <%= link_to 'Register', "#", :id => "BtnFormSubmit" ,:class => "css3-button" -%>
+            </fieldset>
+            <p class="forgot-password">Did you <%= link_to "forget your password?", :action => "forgotpassword" %> or do you need to <%= link_to 'login.', login_url  -%></p>
+        <% end %>
+        </div>
+    </div>
+</div>

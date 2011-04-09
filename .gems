@@ -1,0 +1,6 @@
+rails --version 2.3.8
+mail --version 2.2.7
+treetop --version 1.4.8
+authlogic --version 2.1.6
+httparty --version 0.7.4
+sanitize --version 2.0.1

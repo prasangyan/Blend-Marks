@@ -1,0 +1,52 @@
+<!--- body -->
+<div>
+    <h1>Interesting links</h1>
+    <div class="clearfix"></div>
+    <div class="tbladdlinkform">
+      <%= link_to 'Add new link', "#", :id => "lnkaddnewlink" ,:class => "small blue gradient-button" -%>
+      <div class="data-entry-form">
+        <% form_for(@link) do |f| -%>
+            <div class="clearfix errorbox">
+            </div>
+            <ol>
+              <li>
+                <label for="txtlink">Link</label>
+              </li>
+              <li>
+                <%= f.text_field :link, :id => "txtlink", :class => "text-field", :value => session[:id] -%>
+                <% session[:id] = nil -%>
+              </li>
+              <li>
+                <label for="txtdescription">Description</label>
+                <%= f.text_area :description,:class => "text-field",:id =>"txtdescription",:rows => "0" -%>
+              </li>
+              <li>
+                <label>Tag</label>
+                  <span class="select-tag-field-div">
+                    <select name="tag"  class = "select-field">
+                      <% Tag.find(:all).each_with_index do |tag,index| -%>
+                          <% if index==0 -%>
+                            <option selected="true" value="<%= tag.id -%>"><%= tag.name -%></option>
+                          <% else -%>
+                            <option value="<%= tag.id -%>"><%= tag.name -%></option>
+                          <% end -%>
+                      <% end -%>
+                    </select>
+                  </span>
+                  <span class="text-tag-field-div">
+                    or Create new tag
+                    <input type="text" class="text-field-new-tag" name="newtag">
+                  </span>
+                  <div class="clearfix"></div>
+              </li>
+              <li>
+                <input type="button" class="submit" value="Add Link" />
+                <span>or <a href="#" id ="lnkcancel">Cancel</a></span>
+              </li>
+            </ol>
+        <% end -%>
+      </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+<div class="clearfix"></div>

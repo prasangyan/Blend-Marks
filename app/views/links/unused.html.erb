@@ -1,0 +1,317 @@
+<!--
+
+<div class="report-container-2by3">
+    <h1><span class="menu-button"> <a href="#" class="small blue gradient-button">Search</a></span></h1>
+  </div>
+  <div class="report-container-2by3">
+        <div class="filter-container" <% if flash[:filter] == false %> style="display:none" <% end %> >
+            <form action="/links/search" method="post" id="searchform">
+                <label>Keyword</label>
+                <input type="text" name="pattern" class="text-field" <% if flash[:filter] == true %> value="<%= @pattern %>" <% end %> />
+                <label>Tag</label>
+                <select name="tag" class="text-field" id="searchtag">
+                     <option value="0">All</option>
+                     <% Tag.find(:all).each do |tag| %>
+                     <option value="<%= tag.id %>" <% if flash[:filter] == true and @tagsearch == tag.id %> selected = "true" <% end %> ><%= tag.name %></option>
+                    <% end %>
+                </select>
+                <a href="#" class="small blue gradient-button" id="FilterSubmitButton">Search</a>
+            </form>
+        </div>
+  </div>
+
+
+
+  <table id="TblAddnewlink">
+        <tr>
+            <td>
+                 <%= link_to 'Add new link', new_link_path, :id => "LnkAddnewlink" %>
+            </td>
+        </tr>
+    </table>
+
+   <table id="TblAddnewtag">
+        <tr>
+            <td>
+                <%= link_to 'Add new tag', "#", :id => "LnkAddnewtag" %>
+            </td>
+        </tr>
+    </table>
+
+
+  <li><br /> <a href="#" class="small blue gradient-button" id="FilterSubmitButton">Search</a></li>
+
+  $('.menu-button a').unbind('click');
+    $('.menu-button a').click(function() {
+        $('.filter-container').slideToggle(300);
+    });
+
+
+  // For tooltip
+    $('body').append('<div class="tooltip" id="tooltip"></div>');
+    $('#tooltip').hide();
+    $('table.data th').mouseenter(function(e) {
+        if($(this).attr('tooltip') != "")
+        {
+            $('#tooltip').html($(this).attr('tooltip'));
+            $('#tooltip').css ({
+                top: e.pageY + 5,
+                left: e.pageX + 5
+            }).fadeIn(100);
+        }
+    }).mouseleave(function() {
+        $('#tooltip').hide();
+    }).mousemove(function(e){
+           $('#tooltip').css ({
+            top: e.pageY + 5,
+            left: e.pageX + 5
+        });
+    });
+
+
+  // For Search Box
+    $('#FilterSubmitButton').click(function() {
+        $('#searchform').submit();
+    });
+
+
+
+  // For select listbox tag selection for search
+    $('#searchtag').change(function(){
+        if ($('#searchtag :selected').text() != "All" )
+        {
+            $('#Txthiddentagsearch').val($('#searchtag :selected').text());
+        }
+        else
+        {
+            $('#Txthiddentagsearch').val('');
+        }
+        $('#Txthiddentagsearch').keyup();
+    });
+
+
+  $("#txtsearchcriteria").bind('keyup',function(){
+        $('#searchtag')[0][0].selected = true;
+    });
+
+    // For tag filter
+    $('#Txthiddentagsearch').quicksearch(".linkrow", {
+        noResults: '#noresultsrow',
+        stripeRows: ['odd', 'even'],
+        loader: 'span.loading'
+    });
+
+
+
+  <div class="tbladdtagform">
+      <div class="data-entry-form">
+        <form method="post" action="/addtag">
+          <div class="clearfix errorbox">
+
+          </div>
+          <ol>
+            <li>
+              <label for="txttag"><%= image_tag "expanded.gif",:class => "collapsable", :tag => "expand" %>Tag</label>
+            </li>
+            <li>
+              <input type="text" name="name" id="txttag" class="text-field" />
+            </li>
+            <li>
+              <label for="field_3"><%= image_tag "collapsed.gif",:class => "collapsable", :tag => "collapse" %>Description</label>
+              <textarea rows="" cols="" class="text-field" id="txtdescription"></textarea>
+            </li>
+            <li>
+              <input type="button" class="submit" value="Add Tag" />
+              <span>or <a href="#" id ="lnktagcancel">Cancel</a></span>
+            </li>
+          </ol>
+        </form>
+      </div>
+    </div>
+
+
+
+
+  <span class="menu-button"><div class="addnewlinkholder"><%= link_to 'Add new link', "#", :id => "lnkaddnewlink" %></div> <div class="addnewtagholder"><%= link_to 'Add new tag', "#", :id => "lnkaddnewtag" %></div></span>
+
+
+
+
+  // For Adding new link
+    $('.tbladdlinkform').hide();
+    $('#lnkaddnewlink').click(function() {
+       $('#tooltip').hide();
+       $('#lnkaddnewlink').hide();
+       $('#lnkaddnewtag').show();
+       $('.tbladdlinkform').slideDown(500);
+       $('.tbladdtagform').slideUp(500);
+       setTimeout(function() { $('#tbladdlinkform input[type="text"]').eq(0).focus()},500);
+    });
+
+    $('#lnkcancel').click(function() {
+        $('.tbladdlinkform').slideUp(500);
+        $('#lnkaddnewlink').show();
+    });
+
+    // For Adding new tag
+    $('.tbladdtagform').hide();
+    $('#lnkaddnewtag').click(function() {
+        $('#tooltip').hide();
+        $('#lnkaddnewtag').hide();
+        $('#lnkaddnewlink').show();
+        $('.tbladdlinkform').slideUp(500);
+        $('.tbladdtagform').slideDown(500);
+        setTimeout(function() { $('#tbladdtagform input[type="text"]').eq(0).focus()},500);
+    });
+    $('#lnktagcancel').click(function() {
+        $('.tbladdtagform').slideUp(500);
+        $('#lnkaddnewtag').show();
+    });
+
+
+
+  // for adding tag
+    $('#tbladdtagform input[type="button"]').click(function() {
+        var tag = $('#txttag')[0].value;
+        tag = $.trim(tag);
+        var This = $(this);
+        var errorBox  = $('#tbladdtagform .errorbox');
+        if(tag!= "")
+        {
+            var arrayindex = $.inArray(tag,tagArray);
+            if (arrayindex == -1)
+            {
+                $.ajax({
+                    url: "/addtag",
+                    timeout: 10000,
+                    //datatype: 'xml',
+                    cache: false,
+                    data: $('#tbladdtagform form').serialize(),
+                    type: "POST",
+                    //contentType: "application/xml; charset=utf-8",
+                    beforeSend: function() {
+                        This.val("Adding......")
+                    },
+                    success: function(data) {
+                        if (typeof (data) == typeof (int)) {
+                            showError(errorBox,"Unable to reach the server. Check your interner connection. Refresh the page to continue.");
+                        }
+                        else if(data.indexOf("success") > -1) {
+                            var splitstrings = data.split('#');
+                            showError(errorBox,"Tag added successfully.");
+                            tagArray.push(tag);
+                            debugger;
+                            if (splitstrings.length > 0)
+                            {
+                                $('select').append('<option value=' + splitstrings[1] + ">" + tag + "</option>")
+                            }
+                            setTimeout(function() {$('#lnktagcancel').trigger('click');},1000);
+                        }
+                        else
+                        {
+                            showError(errorBox,data);
+                        }
+                        This.val("Add link");
+                    },
+                    error: function(request, error) {
+                        showError(errorBox,"Unable to reach the server. Refresh the page to continue.");
+                        This.val("Add link");
+                    }});
+            }
+            else
+            {
+                $('#txttag').focus();
+                showError(errorBox,"The tag already exists, try new one.");
+            }
+        }
+        else
+        {
+            $('#txttag').focus();
+            showError(errorBox,"Please input tag");
+        }
+    });
+
+
+
+
+
+  // For Collapse and Expands
+    $('textarea').hide();
+    $('.select-tag-field-div').hide();
+    $('.text-tag-field-div').hide();
+
+    $('.collapsable').click(function () {
+        if ($(this).attr('tag') == "collapse")
+        {
+            $(this)[0].src = '/images/expanded.gif';
+            $(this).attr('tag','expand');
+            $(this).parents('li').find('.text-field').slideDown(100);
+        }
+        else
+        {
+            $(this)[0].src = '/images/collapsed.gif';
+            $(this).attr('tag','collapse');
+            $(this).parents('li').find('.text-field').slideUp(100);
+        }
+    });
+
+    $('.tag-collapsable').click(function() {
+         if ($(this).attr('tag') == "collapse")
+        {
+            $(this)[0].src = '/images/expanded.gif';
+            $(this).attr('tag','expand');
+            $('.select-tag-field-div').slideDown(100);
+            $('.text-tag-field-div').slideDown(100);
+        }
+        else
+        {
+            $(this)[0].src = '/images/collapsed.gif';
+            $(this).attr('tag','collapse');
+            $('.select-tag-field-div').slideUp(100);
+            $('.text-tag-field-div').slideUp(100);
+        }
+    });
+
+
+  <%= image_tag "expanded.gif",:class => "collapsable", :tag => "expand" %>
+
+  <%= image_tag "collapsed.gif",:class => "collapsable", :tag => "collapse" %>
+
+  <%= image_tag "collapsed.gif",:class => "tag-collapsable", :tag => "collapse" %>
+
+
+
+   var headerdiv = $('#div-tableheader');
+    var divheaderheight = headerdiv.height();
+    var headertop = headerdiv.position().top;
+    // for keeping staticheader
+    $(window).scroll(function() {
+            var position = $(this).scrollTop();
+            if (position > headertop) {
+                  // headerdiv.css({'top': (position- headertop).toString() + "px"});
+            }
+            else
+            {
+                //headerdiv.css({'top': "0px"});
+            }
+
+    });
+
+
+  // for keeping staticheader
+    $(window).scroll(function() {
+        var position = $(this).scrollTop();
+        if (position > headertop) {
+            headerdiv.stop().animate({
+                'top': (position- headertop).toString() + "px"
+            },'fast');
+        }
+        else {
+            headerdiv.stop().animate({
+                'top': "0px"
+            },'fast');
+        }
+    });
+
+
+    -->

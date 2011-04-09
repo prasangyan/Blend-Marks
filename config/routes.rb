@@ -13,7 +13,10 @@ BlendMarks::Application.routes.draw do
   # This route can be invoked with purchase_url(:id => product.id)
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
-     resources :coming
+    resources :coming
+    resources :user_sessions
+    resources :users
+    resources :links
 
   # Sample resource route with options:
   #   resources :products do
@@ -50,9 +53,25 @@ BlendMarks::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-   root :controller => "coming", :action => "index"
-    match "subscribe", :controller => "coming", :action => "subscribe"
 
+  match "login", :controller => "user_sessions", :action => "new"
+  match "logout", :controller => "user_sessions", :action => "destroy"
+  match "register", :controller => "users", :action => "new"
+
+  match 'forgotpassword', :controller => "users", :action => "forgotpassword"
+  match 'resetpassword/:id', :controller => "users", :action => "resetpassword"
+
+  match 'quickentry', :controller => "links", :action => "quickentry"
+
+  root :controller => "links", :action => "index"
+  match "subscribe", :controller => "coming", :action => "subscribe"
+  match ':controller/:action/:id'
+  match ':controller/:action/:id.:format'
+  match 'addtag', :controller => "links", :action => "addtag"
+  match 'readmail', :controller => "links", :action => "readlinksfrommail"
+  match 'sendnotification',:controller => "links" , :action => "sendnotification"
+  match 'search/:criteria', :controller => "links", :action => "search"
+  match 'search/:criteria/:pageindex', :controller => "links", :action => "search"
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.

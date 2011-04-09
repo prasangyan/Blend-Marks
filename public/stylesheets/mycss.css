@@ -1,0 +1,192 @@
+.text-field
+{
+    font: normal 1.5em;
+	color: #454545;
+	margin: 0px 0px 15px 0px;
+	padding: 5px;
+	border: 1px solid #cccccc;
+	width:95%;   
+}
+.text-field:focus
+{
+    background:#fffacc;
+}
+
+.text-field-new-tag
+{
+    font: normal 1.5em;
+	color: #454545;
+	margin: 0px 10px 15px 0px;
+	padding: 5px;
+	border: 1px solid #cccccc;
+	width:150px;
+}
+
+.text-field-new-tag:focus
+{
+    background:#fffacc;
+}
+
+.select-field
+{
+    font: normal 1.5em;
+	color: #454545;
+	margin: 0px 0px 15px 0px;
+	padding: 5px;
+	border: 1px solid #cccccc;
+	width:200px;
+}
+.select-field:focus
+{
+    background:#fffacc;
+}
+.search-field
+{
+    font: normal 1.5em;
+	color: #454545;
+	border: 1px solid #cccccc;
+	width:200px;
+    margin:5px;
+    padding:5px;
+}
+.search-field:focus
+{
+    background:#fffacc;
+}
+.search-label
+{
+ 
+}
+.search-container
+{
+    background:#f2f2f2;
+    -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+    padding:5px;
+    text-align:right;
+}
+.collapsable,.tag-collapsable
+{
+    cursor:pointer
+}
+.errorbox
+{
+  color:#f25b50;
+  background-color:#fcf2f2;
+  padding:10px;
+  display:none;
+}
+.emptyRow td
+{
+    text-align:center;
+    color:#94b9a4;
+}
+#noresultsrow
+{
+    color:#94b9a4;
+}
+.highlight
+{
+    color:#ed7d30;
+}
+.hiddentagsearch
+{
+    display:none;
+}
+.addnewlinkholder
+{
+   float:left;
+   padding-right:10px;
+   width:100px;
+}
+.addnewtagholder
+{
+    float:inherit;
+    padding-right:10px;
+    width:100px;
+}
+.tablecolumn
+{
+    width:40%;
+}
+.tagcolumn
+{
+    width:20%;
+}
+
+.select-tag-field-div
+{
+    float:left;
+    padding-right:10px;
+}
+.text-tag-field-div
+{
+    padding-left:10px;
+    float:inherit;
+}
+.tbladdlinkform .data-entry-form
+{
+    padding:5px;
+    border-bottom:1px solid #ccc;
+}
+
+#LinkViewDiv
+{
+    width:400px;
+    overflow:hidden;
+}
+
+.Logo
+{
+    float:left;
+}
+
+.Logo img
+{
+    cursor:pointer;
+}
+
+.bookmarklet_container
+{
+   margin: 0 auto;
+   text-align:right;
+   width: 960px;
+}
+
+.LoginDetails
+{
+    width:100%;
+    text-align: right;
+    padding-top: 10px;
+}
+
+.LoginDetails a
+{
+    text-decoration:none;
+}
+
+.Flash_or_Notice
+{
+    position:relative;
+    left:-150px;
+    background-color:#ffd7bb;
+    color:#555;
+    padding-left:5px;
+    padding-right:5px;
+}
+
+.PageNavigationRow
+{
+    background-color:#eee;
+}
+
+.PageNavigationRow .left
+{
+    text-align:left;
+}
+
+.PageNavigationRow .Right
+{
+    text-align:right;
+}

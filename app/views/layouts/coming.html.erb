@@ -5,34 +5,10 @@
 <!--[if IE 8 ]>    <html class="no-js ie8" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
-  <meta charset="utf-8">
-
-  <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
-       Remove this if you use the .htaccess -->
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
-  <title>Blend Marks</title>
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-  <%= favicon_link_tag  %>
-
-  <!-- Mobile viewport optimized: j.mp/bplateviewport -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- CSS: implied media="all" -->
-  <%= stylesheet_link_tag "comingsoon" %>
-
-  <!-- Uncomment if you are specifically targeting less enabled mobile browsers
-  <link rel="stylesheet" media="handheld" href="css/handheld.css?v=2">  -->
-
-  <!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
-  <%= javascript_include_tag "libs/modernizr-1.7.min" %>
-
+    <%= render :partial => "layouts/headertag" %>
+    <%= stylesheet_link_tag "comingsoon" %>
 </head>
-
 <body>
-
   <div id="container">
     <header>
       <%= image_tag "logo.png" %>
@@ -41,33 +17,6 @@
     <footer>
     </footer>
   </div> <!--! end of #container -->
-
-  <!-- JavaScript at the bottom for fast page loading -->
-
-  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js"></script>
-  <script>window.jQuery || document.write("<script src='javascripts/libs/jquery-1.5.1.min.js'>\x3C/script>")</script>
-
-
-  <!-- scripts concatenated and minified via ant build script-->
-  <%= javascript_include_tag "plugins" %>
-  <%= javascript_include_tag "script" %>
-  <!-- end scripts-->
-
-
-  <!--[if lt IE 7 ]>
-    <%= javascript_include_tag "libs/dd_belatedpng" %>
-    <script>DD_belatedPNG.fix("img, .png_bg"); // Fix any <img> or .png_bg bg-images. Also, please read goo.gl/mZiyb </script>
-  <![endif]-->
-
-
-  <!-- mathiasbynens.be/notes/async-analytics-snippet Change UA-XXXXX-X to be your site's ID -->
-  <script>
-    var _gaq=[["_setAccount","UA-XXXXX-X"],["_trackPageview"]];
-    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
-    g.src=("https:"==location.protocol?"//ssl":"//www")+".google-analytics.com/ga.js";
-    s.parentNode.insertBefore(g,s)}(document,"script"));
-  </script>
-
+  <%= render :googleanalytics %>
 </body>
 </html>

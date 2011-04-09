@@ -1,0 +1,2 @@
+module ScrabcontentHelper
+end

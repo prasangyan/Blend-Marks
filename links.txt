@@ -1,0 +1,261 @@
+https://www.codeschool.com/cart,Looks like an interesting way to learn,Development
+http://ejohn.org/apps/learn/,Place to start learning JavaScript and trying it out in a browser,JQuery
+http://dhtmlx.com/docs/products/dhtmlxGantt/index.shtml,gannt chart control,Other Ajax and Javascript
+http://www.aviary.com/tools/color-swatches,color picker,Web development
+http://www.topstyle4.com/,a simple web page designer tool. you can download this with key here http://www.filesonic.com/file/185423161 http://www.easy-share.com/1914166817 http://depositfiles.com/files/va8algpyt,Web development
+http://markitup.jaysalvat.com/home/,,JQuery
+http://technet.microsoft.com/en-us/library/gg314583.aspx,Add Project Web App Web Parts to a site not within the Project Web App site collection (Project Server 2010),Project Server 2010
+http://blogs.msdn.com/b/brismith/archive/2011/03/01/project-server-2010-check-your-timesheet-filters-before-turning-single-entry-mode-off.aspx,Check your Timesheet filters before turning Single Entry Mode Off,Project Server 2010
+http://dv.componentart.com/,Silver light Dashboard,General
+http://msdn.microsoft.com/en-us/library/bb738433(v=office.12).aspx,,Project Professional 2007
+http://maxnoy.com/interviews.html,Questions we might want to ask during the pre-screening round for developers,HR
+http://webdesignersdesk.com/2010/05/create-custom-popup-model-window-with-jquery/,A simple tutorial for creating a popup box.,JQuery
+http://gettopup.com/,"jquery popup box, smoothness of popup is good.",JQuery
+http://colorpowered.com/colorbox/,Jquery popup box,JQuery
+http://labs.adobe.com/downloads/flashplayer10_square.html,Flash Player for IE9 64 bit,Misc
+http://www.bing.com/videos/watch/video/tracking-time-and-reporting-task-progress-timesheet-delegation-project-server-2010/10taue4p8,Project Time and Task Delegation Presentation,Training Videos
+http://www.projectfinancialserver.com/product/overview.aspx,Project Finance Server 2010,Project Server 2010
+http://www.tineye.com/,,General
+http://feefighters.com/paypal-calculator,Interesting site design,Inspiration
+http://gitref.org/creating/,A good quick reference to refer back to when starting off on Git,Development
+http://nicolasgallagher.com/css-drop-shadows-without-images/demo/,,Design
+http://www.cnblogs.com/pccai/archive/2010/01/24/1655015.html,SharePoint 2010 web app key,SharePoint
+http://noteandpoint.com/,Presentation design inspiration,Presentations
+http://xrefresh.binaryage.com/,,Web development
+http://processingjs.org/,,Other Ajax and Javascript
+http://net.tutsplus.com/tutorials/html-css-techniques/the-30-css-selectors-you-must-memorize/,,Design
+http://knockoutjs.com/,,Other Ajax and Javascript
+http://css3please.com/,,Design
+http://sixrevisions.com/user-interface/website-wireframing/,,Design
+http://www.phono.com/,,JQuery
+http://border-radius.com/,,Design
+http://bridgeurl.com/,,Misc
+http://www.aidanf.net/rails_user_authentication_tutorial,,RoR Applications
+http://www.followupthen.com/,,Misc
+http://vis.stanford.edu/protovis/,,Charts
+http://thejit.org/demos/,Good for complex visualizations,Charts
+http://www.getontracks.org/,Simple and effective Tracking Application,RoR Applications
+http://benalman.com/projects/jquery-postmessage-plugin/,,JQuery
+http://www.dyn-web.com/tutorials/iframes/,,Design
+http://www.456bereastreet.com/archive/200505/transparent_custom_corners_and_borders/,,Design
+http://www.clockingit.com/,,RoR Applications
+http://www.zumocast.com/,,Misc
+http://my.brainshark.com/Home.aspx,,Misc
+http://boxroom.rubyforge.org/index.html,,RoR Applications
+http://code.google.com/p/xdrequest/,,Development
+http://webdesignfan.com/css-tips-i-wish-i-knew-when-i-first-started,,Design
+http://www.hpage.com/,,Design
+http://neteye.github.com/activity-indicator.html,,JQuery
+http://www.nealgrosskopf.com/tech/thread.php?pid=71,,Misc
+http://www.w3.org/TR/FileAPI/,,Development
+http://lovdbyless.com/,,Open source RoR apps
+http://www.opensourcerails.com/projects/339403-TicketMule,,HelpDesk
+http://hoptoadapp.com/pages/home,,RoR Applications
+http://www.shopify.com/,,Open source RoR apps
+http://www.braintreepaymentsolutions.com/,,Online Payment Gateways
+http://peepcode.com/products/activemerchant-pdf,,Open source RoR apps
+http://isendr.com/,,Misc
+http://www.instiki.org/show/HomePage,,Open source RoR apps
+http://www.fatfreecrm.com/,,Open source RoR apps
+http://radiantcms.org/,,Open source RoR apps
+http://openmind.sourceforge.net/default.html,,Open source RoR apps
+http://css3pie.com/,,Design
+http://www.boku.com/,,Online Payment Gateways
+http://net.tutsplus.com/tutorials/other/quick-tip-4-ways-to-auto-refresh-your-browser-when-designing-new-sites/,,Development
+http://modxcms.com/,,Development
+http://www.newrelic.com/,,Development
+http://qooxdoo.org/,,Development
+http://yahoo.github.com/boomerang/doc/,,Development
+http://blueblots.com/tutorials/20-must-learn-button-tutorials-in-jquery-and-css/,,Design
+http://www.highcharts.com/,,Charts
+http://raphaeljs.com/,,Charts
+http://aviathemes.com/aviaslider/?slider=droping-curtain,,JQuery
+http://www.bidsketch.com/,,Misc
+http://memcached.org/,,Development
+http://visualstudiogallery.msdn.microsoft.com/en-us/c7b5accc-abd8-4776-a331-81392a58a3c3,,Development
+http://visualstudiogallery.msdn.microsoft.com/en-us/451e2b35-4014-454a-9df5-d3c82e20c0d6,,Development
+http://www.gooddata.com/what-is-gooddata/feature-tour/,Need to see if we can get inspired with some idea from here to add to our reports,Misc
+http://newsberry.com/pricing,,Development
+http://postmarkapp.com/,,Development
+http://acko.net/dev/farbtastic,,JQuery
+http://www.evernote.com/,,Misc
+http://www.dabbledb.com/demo/,,Development
+http://www.howtogeek.com/howto/21831/how-to-test-drive-google-android-on-your-pc-without-buying-a-phone/,,Development
+http://simplecartjs.com/,,Online Payment Gateways
+http://www.synergyonline.com/blog/blog-moss/Lists/Posts/Post.aspx?ID=49,,SharePoint
+http://weblogs.asp.net/scottgu/archive/2010/07/06/introducing-webmatrix.aspx,,Development
+http://www.tipsarena.org/2010/07/60-firefox-add-ons-for-web-design-and.html,,Design
+http://www.ccavenue.com/,,Online Payment Gateways
+http://www.ebs.in/,,Online Payment Gateways
+http://www.1stwebdesigner.com/resources/awesome-tools-freelancers-time-management/,Task management tools,Design
+http://www.1stwebdesigner.com/development/health-hazards-freelancing/,,HR
+http://browsershots.org/,,Design
+http://www.1stwebdesigner.com/resources/online-tools-website-validation-testing/?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+1stwebdesigner+%281stwebdesigner%29&utm_content=Google+Reader,,Design
+http://codeeval.com/,,JQuery
+http://ninite.com/,,System Admin
+http://visualwebsiteoptimizer.com/,,Testing
+http://www.adduse.com/,,Testing
+http://loadimpact.com/index.php,,Testing
+http://www.gethifi.com/tools/regex,,JQuery
+http://gskinner.com/RegExr/,,Development
+http://i.seemikecode.com/,This might be a good tool to check a person we are interviewing. We can get them to type in code during a phone interview,Development
+http://instantblueprint.com/,,Design
+http://www.planetgeek.ch/2010/06/20/how-to-select-open-source-libraries/,,Development
+http://horizonguy.wordpress.com/2010/06/11/asp-net-mvc-cms-thoughts-reviews-projects/,List of CMS applications,Development
+http://tortoisehg.bitbucket.org/,Source Control System,Development
+http://www.codecapers.com/post/Error-Handling-in-MVC-with-ELMAH.aspx,MVC Error Log Plugin,Development
+http://www.bounceapp.com/,,Design
+http://github.com/cloudhead/less.js,,JQuery
+http://www.clicktale.com/,,Design
+http://www.sharepointkings.com/2010/06/creating-custom-field-in-sharepoint.html?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+SharepointKings+%28Sharepoint+Kings%29&utm_content=Google+Reader,,SharePoint
+http://www.sitepoint.com/dustmeselectors/,Useful tool to find CSS classes that have not been used on a page. Good for cleaning up CSS,Design
+http://www.zurb.com/playground/jquery-text-change-custom-event,,JQuery
+http://michaelcrump.net/archive/2010/05/25/tools-and-utilities-for-the-.net-developer.aspx,,Development
+http://naveensrinivasan.com/2010/05/31/debugging-net-framework-4-0-without-source-code-using-windbg/?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+naveensrinivasan%2FrUMM+%28Naveen+Blog%29,,Development
+http://buckwilson.me/lightboxme/,,JQuery
+http://postageapp.com/,,Development
+http://alexfletcher.typepad.com/all_bets_off/2006/08/enabling_busine.html,,Development
+http://teamdistinction.com/labs/dot-net-report-printing-library/,,Development
+http://tympanus.net/codrops/2010/05/24/collective-ajax-rating-system-create-simple-ajax-rating-system-using-jquery-ajax-and-php/,,JQuery
+http://www.codethinked.com/post/2010/05/26/SquishIt-The-Friendly-ASPNET-JavaScript-and-CSS-Squisher.aspx,,Development
+http://www.gist.com/,,Design
+http://www.rejetto.com/hfs/?f=intro,,Development
+http://www.conceptfeedback.com/,,Design
+http://httpwatch.com/,,Design
+http://www.visitmix.com/labs/incarnate/,,JQuery
+http://dhtmlx.com/docs/products/dhtmlxGantt/,,JQuery
+http://www.browserscope.org/,,Design
+http://sixrevisions.com/tools/chrome-extensions-developers-designers/,,Design
+http://js-kit.com/,,JQuery
+http://stackoverflow.com/questions/1619914/launch-browser-from-c-and-fill-in-username-and-password,,Development
+http://msdn.microsoft.com/en-gb/magazine/ee336135.aspx,,Development
+http://monotouch.net/DownloadTrial,,Development
+http://www.mono-project.com/Main_Page,,Development
+http://www.scottlogic.co.uk/blog/gergely/2010/04/ten-cool-things-you-didnt-know-about-visual-studio-2010/,,Development
+http://stephenwalther.com/blog/archive/2010/04/08/jquery-asp.net-and-browser-history.aspx?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+StephenWalther+%28Stephen+Walther+on+ASP.NET+MVC%29,,JQuery
+https://www.idera.com/Content/Home.aspx,,SharePoint
+http://www.exceptionhub.com/,Can we user this?,Development
+http://aext.net/2010/04/excellent-jquery-plugins-resources-for-data-presentation-and-grid-layout/,,JQuery
+http://aspnet.codeplex.com/releases/view/40584#DownloadId=106494,Minifier for JS and CSS,a nice tool
+http://ixedit.com/,Browser tool to add interactivity a web page with no need to know any JQuery or javascript. Might be useful for non-developers,JQuery
+http://www.webdeveloperjuice.com/2010/03/20/17-attractive-web-apps-and-tools-you-simply-cannot-miss/,,Design
+http://skyje.com/2010/03/drawing-tools/,,Design
+http://live.visitmix.com/videos,,Development
+http://zootool.com/,,Design
+http://sixrevisions.com/user-interface/best-practices-for-hints-and-validation-in-web-forms/,,Design
+http://alexgorbatchev.com/wiki/SyntaxHighlighter,,Development
+http://encosia.com/2009/05/20/automatically-minify-and-combine-javascript-in-visual-studio/,,Development
+http://www.webresourcesdepot.com/e-mail-to-sms-providers-list-easiest-way-to-sms-enable-web-applications/?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+webresourcesdepot+%28WebResourcesDepot%29,,Development
+http://codefusionlab.blogspot.com/2010/02/43-in-browser-web-development-tools.html,,Development
+http://www.w3avenue.com/2010/02/03/guidelines-tools-and-resources-for-web-wireframing/?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+w3avenue+%28W3Avenue%29&utm_content=Google+Reader,,Design
+http://www.teambox.com/,,Development
+http://thecodemine.org/,,JQuery
+http://www.markercss.com/,,Design
+http://www.codeproject.com/KB/aspnet/ExploringIIS.aspx,,Development
+http://www.codeproject.com/KB/aspnet/ProcessAttache.aspx,,Development
+http://www.addebook.com/it/uncategorized/aspnet-35-cms-development_14338.html,,Development
+http://blog.krisvandermast.com/BookReviewASPNET35ContentManagementSystemDevelopment.aspx,,Development
+http://www.mnot.net/cache_docs/,,Development
+http://www.programmableweb.com/apis/directory/1?sort=category,,Development
+http://www.net-kit.com/10-ways-to-animate-your-links/,,JQuery
+http://www.webdeveloperjuice.com/2010/01/14/14-jquery-and-css-demos-i-wish-i-knew-much-before/,,JQuery
+http://www.webappers.com/2010/01/12/how-to-create-facebook-style-footer-admin-panel/?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+Webappers+%28WebAppers%29,,JQuery
+http://www.dreamcss.com/2009/04/10-beautiful-sliding-panel-with-jquery.html,,JQuery
+http://stackoverflow.com/questions/95600/jquery-error-option-in-ajax-utility,Ajax TimeOut/Error Handling tips,JQuery
+http://tutorialzine.com/2010/01/advanced-event-timeline-with-php-css-jquery/,,JQuery
+http://masugadesign.com/the-lab/scripts/unobtrusive-ajax-star-rating-bar/,,JQuery
+http://www.ajaxim.com/,,JQuery
+http://webstandard.kulando.de/post/2010/01/08/jquery-plugins-tutorials-sliding-fading-scrolling-zooming,,JQuery
+http://tutsvalley.com/tutorials/making-a-cool-spotlight-effect-with-jquery/,,JQuery
+http://www.maxdesign.com.au/presentation/checklist.htm,,Design
+http://www.microsoft.com/downloads/details.aspx?displaylang=en&FamilyID=fc97d587-ffa4-4b43-b77d-958f3f8a87b9,,SharePoint
+http://technet.microsoft.com/en-us/sharepoint/ee692578.aspx,,JQuery
+http://blogs.msdn.com/project/archive/2010/01/06/project-2010-business-intelligence-overview.aspx,,Project Server
+http://www.mayzes.org/googlemaps.jquery.html,Google Map using JQuery,JQuery
+http://symphony-cms.com/,Content Management System,Development
+http://iconizer.net/,,JQuery
+http://primercss.com/index.php,,Design
+http://papermashup.com/jquery-ajax-delete/,,JQuery
+http://davidwalsh.name/dw-content/load-more.php,,JQuery
+http://nettuts.s3.cdn.plus.org/443_editing/demo/code.html#,,JQuery
+https://browserlab.adobe.com/index.html#,,Design
+http://www.cssstickyfooter.com/,,Design
+http://devsnippets.com/article/styling-your-lists.html,,Design
+http://css-tricks.com/improved-current-field-highlighting-in-forms/,,JQuery
+http://xaviershay.github.com/tufte-graph/,,JQuery
+http://www.noupe.com/design/data-tables-in-modern-web-design.html,,Design
+http://subsonicproject.com/,Opensource for Data Layer,Development
+http://stackoverflow.com/questions/505651/windows-sharepoint-services-wss-and-forms-authentication-passing-those-creden,,SharePoint
+http://msdn.microsoft.com/en-us/library/ee862408.aspx,,Project Server
+http://gwt-ext.com/demo/,,Design
+http://css-tricks.com/scrollfollow-sidebar/,Maybe useful for an option on a web page that has to be continuously available,JQuery
+http://css-tricks.com/html-invoice/,,Design
+http://www.smashingmagazine.com/2009/04/08/from-table-hell-to-div-hell/,What is difficult in Table? Why Use Div's,Design
+http://blogs.msdn.com/mattdotson/archive/2006/03/02/542613.aspx,To have static header in scrolling gridview,Development
+http://www.pelagodesign.com/sidecar/emogrifier/,,JQuery
+http://www.simple-talk.com/dotnet/.net-tools/customizing-the-login-page-in-sharepoint-2007/,,SharePoint
+http://inlinestyler.torchboxapps.com/,Converts a external CSS styles to inline styles,Design
+http://webdesignledger.com/resources/12-useful-jquery-plugins-for-working-with-tables,,JQuery
+http://www.flickr.com/photos/jasonrobb/4009482842/sizes/o/in/pool-1070674@N20/,,Design
+http://chrysbader.com/,Good Practices for Web Design,Design
+http://www.bloggingdeveloper.com/post/Closure-Compiler-vs-YUI-Compressor-Comparing-the-Javascript-Compression-Tools.aspx,,Development
+http://developer.yahoo.com/yui/yuitest/,,Development
+http://developer.yahoo.com/yui/profiler/,,Development
+http://code.google.com/closure/,,Development
+http://dzineblog.com/2009/11/18-impressive-web-form-validation-scripts-to-enhance-user-experience.html,,JQuery
+http://www.jankoatwarpspeed.com/post/2009/11/17/Forgiveness-UI-design.aspx,,Design
+http://pixelmatrixdesign.com/weblog/comments/announcing_uniform/,,JQuery
+http://earnedvalue.codeplex.com/,,Project Server
+http://ktskumar.wordpress.com/2009/03/10/sharepoint-databases/,MOSS Databases,SharePoint
+http://www.p51labs.com/simply-buttons-v2/,,Design
+http://mosshowto.blogspot.com/2009/04/application-pages-breadcrumb.html,Programatically Breadcrumb,SharePoint
+http://rss.softwaregarden.com/aboutrss.html,Basics of RSS,RSS Feed
+http://www.dzinepress.com/2009/11/55-decisive-useful-jquery-tutorials/,,JQuery
+http://www.nicholasbarger.com/52-Developing_ASPNET_Custom_Controls,this link explains the process of creating our own controls,Design
+http://davidwalsh.name/css-page-breaks,,Design
+http://www.projectserverhelp.com/Lists/Posts/Post.aspx?ID=107,Monitor Your Project Server Investment by Measuring Project Web Access Traffic and Usage,Project Server
+http://windowsitpro.com/article/articleid/102920/q-i-have-users-in-another-forest-who-i-want-to-have-exchange-mailboxes-in-my-exchange-organization-what-are-my-options.html,Read users from another AD Forest and use them as resource in project server,Project Server
+http://www.jankoatwarpspeed.com/post/2009/11/01/usability-tips-visualizing-ajax-requests.aspx,,JQuery
+http://projectserverblogs.com/?p=204,Create resource is stright forward,PSI
+http://blogs.msdn.com/chrisfie/archive/2009/10/30/sharepoint-and-project-server-uls-viewer-tool-released.aspx,,Project Server
+http://www.andrewconnell.com/blog/archive/2009/10/19/part-3-whats-new-with-sharepoint-server-2010-web.aspx,,JQuery
+http://www.andrewconnell.com/blog/archive/2009/10/19/part-2-whats-improved-with-sharepoint-server-2010-web.aspx,,SharePoint
+http://www.andrewconnell.com/blog/archive/2009/10/19/part-1-improvements-to-the-core-sharepoint-platform.aspx,Lists the improvements that are coming in SharePoint 2010,SharePoint
+http://blogs.technet.com/doug_mccutcheon/archive/2009/10/12/microsoft-project-server-and-portfolio-server-2007-training-available-on-demand.aspx,Availability of recordings from the popular EPM University 2007 courses,Project Server
+http://blogs.msdn.com/chrisfie/archive/2007/04/05/configuring-project-server-2007-using-the-command-line-stsadm.aspx,Script to create new SSP and a Project server instance,Project Server
+http://sheltonblog.com/archive/2007/11/21/how-to-video-building-a-basic-approval-workflow-with-sharepoint.aspx,Approval Workflow How To Visual tutorials,SharePoint
+http://labs.ideeinc.com/multicolr,,Design
+http://www.jankoatwarpspeed.com/post/2009/09/28/webform-wizard-jquery.aspx,An interesting plugin that changes a web form to a wizard driven form,JQuery
+http://www.dfc-e.com/metiers/multimedia/opensource/jqtransform/,,JQuery
+http://www.jankoatwarpspeed.com/post/2008/07/09/Justify-elements-using-jQuery-and-CSS.aspx,,JQuery
+http://www.keyframesandcode.com/code/development/javascript/jquery-highlight-plugin/,This plugin higlights a region,when the region is focused on
+http://net.tutsplus.com/tutorials/html-css-techniques/20-html-forms-best-practices-for-beginners/,This article contains some good practices to follow when creating a HTML Form,Design
+http://www.tutoriallounge.com/2009/09/25-paramount-jquery-tutorials/,,JQuery
+http://www.tripwiremagazine.com/tools/html/45-really-essential-free-html-form-enhancements.html,This link gives a list of tutorials that how enhancements can be made to a form. This link mostly shows how to enhance a form using Javascript and Javascript frameworks,JQuery
+http://richworks.in/2010/10/17-most-common-myths-in-the-design-world/,,Design
+http://technet.microsoft.com/en-us/projectserver/gg176680.aspx,"Project Server related information including CUs, Service Packs etc",Project Server
+http://www.labnol.org/internet/101-useful-websites/18078/,interesting links,General
+http://www.demoduck.com,Demo screen cast creator,General
+http://railsinstaller.org/,Quick Installer for RoR on Windows,RoR Applications
+http://www.appcelerator.com/products/titanium-cross-platform-application-development/,Mobile application development using JS and RoR,RoR Applications
+http://apigee.com/,API traffic management,Development
+https://chartbeat.com/,Real time site monitoring,Design
+https://www.pivotaltracker.com,Agile Project Management tool,Misc
+http://www.yankodesign.com/2011/01/19/how-cool-can-a-flip-phone-get/,,Cool
+http://tcpmonitor.altervista.org/tcpeye-network-monitoring/#,,General
+http://msdn.microsoft.com/en-us/library/gg549101.aspx,How to: Modify the Ribbon in PWA,Project Server 2010
+http://msdn.microsoft.com/en-us/library/gg446880.aspx,Using the ProjTool Test Application in Project Server 2010,Project Server 2010
+http://msdn.microsoft.com/en-us/library/gg508876.aspx,Project Server Cache Synchronization,Project Server 2010
+http://txt2re.com/,RegEx generator,Development
+http://aquantum-demo.appspot.com/file-upload,JQuery file upload add-in that allows multi part uploads,JQuery
+http://social.technet.microsoft.com/Forums/en-US/projectserver2010general/thread/b7f1116e-733a-48b5-9f20-251d3f14d5a8,Company calendar in Project Server 2010,Project Server 2010
+http://blogs.catapultsystems.com/epm/archive/2010/08/06/accessing-project-server-from-the-iphone.aspx,Accessing Project Server from the iPhone,Project Server 2010
+http://uxmovement.com/resources/8-resources-for-beautiful-interface-design-examples,UX Design inspiration,Design
+http://epmsource.com/,"Invoke Project Status reporting, direct from the ribbon",Project Server 2010
+http://www.applepark.co.uk/displaying-the-day-count-for-a-task/,Displaying the Day count for a task,Project Professional 2010
+http://office-2010.iyogi.net/,iYogi,MS Office
+http://sqlserverselect.blogspot.com/,Visual Studio 2010 Database Object,Visual Sudio 2010
+http://www.educationonlineforcomputers.com/blogs/,"Office 2010 References, Videos, and Guides",MS Office
+http://msdnrss.thecoderblogs.com/2011/02/project-server-2010-take-care-changing-custom-fields-to-allow-multiple-values/,Take care changing custom fields to allow multiple values,Project Server 2010
+http://www.mpug.com/News/Pages/Ask-the-Experts-Configuring-the-Project-Server-2010-Enterprise-Global-Template.aspx,Configuring the Project Server 2010 Enterprise Global Template,General
+http://www.noteslate.com/,Interesting note taking tablet,General

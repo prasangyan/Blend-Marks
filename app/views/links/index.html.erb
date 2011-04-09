@@ -1,0 +1,66 @@
+<!--- body -->
+    <header>
+        <%= image_tag 'logo.png' %>
+        <!-- Search -->
+        <div id="search">
+          <input type="text" name="searchcriteria">
+          <a href="#" class>Search</a>
+        </div>
+        <a href="#" class="css3-button submit-link"><span>Submit Link</span></a>
+    </header>
+    <div class="clearfix"></div>
+    <div id="main" role="main">
+    <!-- Add Link form -->
+    <% if @links.count() > 0 -%>
+        <% @links.each do |link|%>
+            <ul class="link">
+                <li>
+                    <a href="<%= link.link %>"><%= link.title %></a>
+                    <ul class="sub-menu">
+                        <li>Added by<a href="#" class="submitter-link"><%= User.find(link.user_id).email %></a>on <%= link.created_at.strftime("%d %M %Y") %></li>
+                        <li>|</li>
+                        <li><a href="#" class="comment-link">0 Comments</a></li>
+                    </ul>
+                </li>
+                <li>
+                  <div class="tags">
+                    <a href="#"><%= Tag.find(link.tag_id).name %></a>
+                  </div>
+                </li>
+            </ul>
+        <% end %>
+    <% end %>
+    </div>
+    <div class="secondary-content-highlight">
+      <a href="#" class="css3-button-blue">Invite your team</a>
+      <p>or</p>
+      <a href="javascript:function r() { var d = document;bm_src=d.getElementsByTagName('html')[0].innerHTML;bms = d.createElement('script');bms.type = 'text/javascript';bms.src = 'http://localhost:3000/javascripts/booklet.js'; d.body.appendChild(bms);} r();"
+        class="css3-button">Drag and drop this into your favourites</a>
+      <div>
+      </div>
+    </div>
+    <div class="secondary-content-sub-items">
+      <h3>Browse by tag</h3>
+      <div class="tags">
+        <% Tag.find(:all).each do |t| %>
+            <a href="#"><%= t.name %></a>
+        <% end %>
+      </div>
+    </div>
+    <footer>
+    </footer>
+
+    <div class="add-link-form">
+        <%= form_for(@link) do |f| -%>
+              <label>Title</label>
+              <%= f.text_field :title, :id => "txttitle", :class => "small" -%>
+              <label>Link</label>
+              <%= f.text_field :link, :id => "txtlink", :class => "small", :value => session[:id] -%>
+              <% session[:id] = nil -%>
+              <label>Description</label>
+              <%= f.text_area :description,:class => "small",:id =>"txtdescription",:rows => "0" -%>
+              <label>Tag</label>
+              <input type="text" class="small" name="newtag">
+              <a href="#" class="css3-button" onclick="document.forms[0].submit()">Save link</a> or <a href="#" id ="lnkcancel">Cancel</a>
+        <% end -%>
+    </div>

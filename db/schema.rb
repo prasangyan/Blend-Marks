@@ -10,12 +10,59 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110406124532) do
+ActiveRecord::Schema.define(:version => 20110407110035) do
+
+  create_table "links", :force => true do |t|
+    t.string   "link"
+    t.text     "description"
+    t.integer  "tag_id"
+    t.integer  "user_id"
+    t.integer  "createdby"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "content"
+    t.text     "title"
+  end
+
+  create_table "notificationlinks", :force => true do |t|
+    t.string   "link"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "subscriptions", :force => true do |t|
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "tags", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer :link_id
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_sessions", :force => true do |t|
+    t.string   "username"
+    t.string   "password"
+    t.boolean  "remember_me"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "username"
+    t.string   "email"
+    t.boolean  "isnotificationsubscribed"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "crypted_password"
+    t.string   "password_salt"
+    t.string   "persistence_token"
+    t.string   "reset_code"
+    t.integer :link_id
   end
 
 end

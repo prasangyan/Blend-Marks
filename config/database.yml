@@ -1,17 +1,17 @@
 # PostgreSQL. Versions 7.4 and 8.x are supported.
 #
-# Install the pg driver:
-#   gem install pg
-# On Mac OS X with macports:
-#   gem install pg -- --with-pg-config=/opt/local/lib/postgresql84/bin/pg_config
+# Install the ruby-postgres driver:
+#   gem install ruby-postgres
+# On Mac OS X:
+#   gem install ruby-postgres -- --include=/usr/local/pgsql
 # On Windows:
-#   gem install pg
+#   gem install ruby-postgres
 #       Choose the win32 build.
 #       Install PostgreSQL and put its /bin directory on your path.
 development:
   adapter: postgresql
   encoding: unicode
-  database: BlendMarks_development
+  database: BelndMarks_development
   pool: 5
   username: postgres
   password: password@123
@@ -38,7 +38,7 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: BlendMarks_test
+  database: BelndMarks_test
   pool: 5
   username: postgres
   password: password@123
@@ -47,7 +47,7 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: BlendMarks_production
+  database: BelndMarks_production
   pool: 5
   username: postgres
   password: password@123
