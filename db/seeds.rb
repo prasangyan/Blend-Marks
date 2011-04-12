@@ -20,6 +20,7 @@ user.email = "santhosh@itxsolutionsindia.com"
 user.password = "password@123"
 user.password_confirmation = "password@123"
 user.isnotificationsubscribed = true
+user.bookmarkletcode = User.random_string(10)
 if user.save
 else
   user.errors.each do |err|

@@ -99,7 +99,7 @@ class LinksController < ApplicationController
     userbookmarkletkey = params[:key]
     tagname = 'unknown'
     unless id.nil? and userbookmarkletkey.nil?
-      user = User.find(:first, :conditions => "userbookmarkletkey = '#{userbookmarkletkey}'")
+      user = User.find(:first, :conditions => "bookmarkletcode = '#{userbookmarkletkey}'")
       unless user.nil?
         link = Link.new
         link.link = id
