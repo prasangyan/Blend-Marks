@@ -63,10 +63,10 @@ BlendMarks::Application.routes.draw do
 
   match 'quickentry', :controller => "links", :action => "quickentry"
 
-  #root :controller => "links", :action => "index"
+  root :controller => "links", :action => "index"
 
-  match '/', :controller => "links", :action => "index" , :constraints => {:subdomain => "blendmarks"}
-  match '/', :controller => "coming", :action => "index"
+  #match '/', :controller => "links", :action => "index" , :constraints => {:subdomain => "blendmarks"}
+  #match '/', :controller => "coming", :action => "index"
 
 
 
