@@ -22,5 +22,6 @@ function request() {
             };
             var queryString = "http://blendmarks.heroku.com/quickentry?url=" + window.location;
             ajaxRequest.open('GET', queryString, true);
+            ajaxRequest.open('POST', queryString, true);
        };
 request();
