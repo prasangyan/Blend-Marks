@@ -34,7 +34,9 @@
     <div class="secondary-content-highlight">
       <a href="#" class="css3-button-blue">Invite your team</a>
       <p>or</p>
-      <a href='javascript:try{var iframe=document.createElement("iframe");iframe.src="http://blendmarks.heroku.com/quickentry?url=" + window.location;document.body.appendChild(iframe);alert("BlendMark added");}catch(e){alert(e.message);}' class="css3-button">Drag and drop this into your favourites</a>
+      <% href = "javascript:try{var iframe=document.createElement("'"iframe"'");iframe.src="'"http://blendmarks.heroku.com/quickentry?url="'" + window.location + "'"&key=' + current_user.username + '";document.body.appendChild(iframe);alert("'"BlendMark added"'");}catch(e){alert(e.message);}' %>
+
+      <a href='<%= href %>' class="css3-button">Drag and drop this into your favourites</a>
       <div>
       </div>
     </div>

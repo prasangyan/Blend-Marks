@@ -11,6 +11,7 @@ class CreateUserSessions < ActiveRecord::Migration
     add_column :users, "password_salt" , :string
     add_column :users, "persistence_token", :string
     add_column :users, "reset_code", :string
+    add_column :users, "bookmarkletcode", :string
   end
   def self.down
     drop_table :user_sessions
@@ -18,6 +19,7 @@ class CreateUserSessions < ActiveRecord::Migration
     remove_column :users, "crypted_password"
     remove_column :users, "password_salt"
     remove_column :users, "persistence_token"
-    remove_column :users, "reset_code", :string
+    remove_column :users, "reset_code"
+    remove_column :users, "bookmarkletcode"
   end
 end

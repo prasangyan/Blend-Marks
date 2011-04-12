@@ -96,20 +96,26 @@ class LinksController < ApplicationController
 
   def quickentry
     id = params[:url]
+    userbookmarkletkey = params[:key]
     tagname = 'unknown'
-    unless id.nil?
-      link = Link.new
-      link.link = id
-      link.title = id
-      tag = Tag.find(:first, :conditions => "name = '#{tagname}'")
-      if tag.nil?
-        tag = Tag.new
-        tag.name = tagname
-        tag.save
-      end
-      link.tag_id = tag.id
-      unless link.save
-            puts link.errors.full_messages
+    unless id.nil? and userbookmarkletkey.nil?
+      user = User.find(:first, :conditions => "userbookmarkletkey = '#{userbookmarkletkey}'")
+      unless user.nil?
+        link = Link.new
+        link.link = id
+        link.title = id
+        tag = Tag.find(:first, :conditions => "name = '#{tagname}'")
+        if tag.nil?
+          tag = Tag.new
+          tag.name = tagname
+          tag.save
+        end
+        link.tag_id = tag.id
+        link.tag = tag
+        link.user = user
+        link.user_id = user.id
+        unless link.save
+        end
       end
     end
     render :text => "success"

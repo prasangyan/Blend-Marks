@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   belongs_to :link
   validates_presence_of :username, :email
   validates_uniqueness_of :username, :email
+  before_save :setbookmartletcode
 
   def send_reset_password
     reset_code = User.random_string(10)
@@ -20,4 +21,9 @@ class User < ActiveRecord::Base
     1.upto(len) { |i| newpass << chars[rand(chars.size-1)] }
     return newpass
   end
+
+  def setbookmartletcode
+      self.bookmarkletcode = User.random_string(10)
+  end
+
 end

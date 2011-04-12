@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(:version => 20110407110035) do
     t.string   "password_salt"
     t.string   "persistence_token"
     t.string   "reset_code"
+    t.string   "bookmarkletcode"
     t.integer :link_id
   end
 
