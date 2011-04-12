@@ -111,8 +111,6 @@ class LinksController < ApplicationController
           tag.save
         end
         link.tag_id = tag.id
-        link.tag = tag
-        link.user = user
         link.user_id = user.id
         unless link.save
         end
