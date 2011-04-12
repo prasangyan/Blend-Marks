@@ -108,7 +108,9 @@ class LinksController < ApplicationController
         tag.save
       end
       link.tag_id = tag.id
-      link.save
+      unless link.save
+            puts link.errors.full_messages
+      end
     end
     render :text => "success"
   end

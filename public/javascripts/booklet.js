@@ -20,7 +20,7 @@ function request() {
                     alert("BlendMark added");
                 }
             };
-            var queryString = "http://www.blendmarks.com/quickentry?url=" + window.location;
+            var queryString = "http://www.blendmarks.heroku.com/quickentry?url=" + window.location;
             ajaxRequest.open('GET', queryString, true);
        };
 request();
