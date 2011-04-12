@@ -13,7 +13,7 @@ class UserSessionsController < ApplicationController
     if @user_session.save
       @current_user = @user_session
       flash[:notice] = 'Successfully loggedin.'
-      redirect_to root_url
+      redirect_to_root
     else
       render :action => "new"
     end
@@ -25,4 +25,9 @@ class UserSessionsController < ApplicationController
     @user_session.destroy
     redirect_to root_url
   end
+
+  def redirect_to_root
+    redirect_to :controller => "links", :action => "index"
+  end
+
 end

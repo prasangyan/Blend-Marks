@@ -20,9 +20,7 @@ function request() {
                     alert("BlendMark added");
                 }
             };
-            var queryString = "http://localhost:3000/quickentry";
-            ajaxRequest.open('POST', queryString, true);
-            ajaxRequest.send('url=' + "http://google.com");
-        };
-
+            var queryString = "http://www.blendmarks.com/quickentry?url=" + window.location;
+            ajaxRequest.open('GET', queryString, true);
+       };
 request();
