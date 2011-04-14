@@ -1,0 +1,9 @@
+<div class="add-link-form">
+    <%= form_tag("/confirminvitation") do |f| -%>
+        <div class="clearfix errorbox">
+        </div>
+        <label>Email</label>
+        <input type="text" class="small" name="email" />
+        <%= link_to 'Send invitation', "#", :id => "BtnFormSubmit" ,:class => "css3-button" -%> or <a href="#" id ="lnkcancel">Cancel</a>
+    <% end -%>
+</div>

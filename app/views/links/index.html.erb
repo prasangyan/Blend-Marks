@@ -32,7 +32,7 @@
     <% end %>
     </div>
     <div class="secondary-content-highlight">
-      <a href="#" class="css3-button-blue">Invite your team</a>
+      <a href="invitepeople" class="css3-button-blue" id="Invitepeople">Invite your team</a>
       <p>or</p>
       <% href = "javascript:try{var iframe=document.createElement("'"iframe"'");iframe.style.visibility="'"hidden"'";iframe.style.display="'"none"'";iframe.src="'"http://blendmarks.heroku.com/quickentry?url="'" + window.location + "'"&title="'" + document.title + "'"&key=' + current_user.bookmarkletcode + '";document.body.appendChild(iframe);alert("'"BlendMark added"'");}catch(e){alert(e.message);}' %>
       <a href='<%= href %>' class="css3-button">Drag and drop this into your favourites</a>

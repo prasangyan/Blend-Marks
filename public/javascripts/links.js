@@ -11,6 +11,50 @@ $(function() {
         $('.add-link-form').fadeOut(300);
         return false;
     }); */
+    $('#Invitepeople').fancybox({
+        'transitionIn'	: 'elastic',
+		'transitionOut'	: 'elastic',
+        'type'			: 'ajax',
+        'autoDimensions': 'true',
+        'onComplete'    : function() {
+            $('#BtnFormSubmit').click(function() {
+                try
+                {
+                    This = $('#BtnFormSubmit');
+                    errorBox = $('.add-link-form .errorbox');
+                    $.ajax({
+                        url: "/confirminvitation",
+                        timeout: 10000,
+                        //datatype: 'xml',
+                        cache: false,
+                        data: $('form').serialize(),
+                        type: "POST",
+                        //contentType: "application/xml; charset=utf-8",
+                        beforeSend: function() {
+                            This.val("Adding......")
+                        },
+                        success: function(data) {
+                            debugger;
+                            if (typeof (data) == typeof (int)) {
+                                showError(errorBox,"Unable to reach the server. Check your internet connection. Refresh the page to continue.");
+                            }
+                            else if(data.indexOf("success") > -1) {
+                                showError(errorBox,"Sent invitation mail successfully.");
+                            }
+                            else
+                            {
+                               showError(errorBox,data);
+                            }
+                        },
+                        error: function(request, error) {
+                            showError(errorBox,"Unable to reach the server. Refresh the page to continue.");
+                            This.val("Add link");
+                        }});
+                }catch(e){alert(e);}
+                return false;
+            });
+        }
+    });
     $('.submit-link').fancybox({
         'transitionIn'	: 'elastic',
 		'transitionOut'	: 'elastic',

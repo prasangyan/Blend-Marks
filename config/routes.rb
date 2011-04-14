@@ -68,6 +68,9 @@ BlendMarks::Application.routes.draw do
 
   match 'addlink', :controller => "links", :action => "create"
 
+  match 'invitepeople', :controller => "users", :action => "invitepeople"
+  match 'confirminvitation', :controller => "users", :action => "confirminvitation"
+
   #root :controller => "links", :action => "index"
 
   match '/', :controller => "links", :action => "index" , :constraints => {:subdomain => "blendmarks"}
