@@ -111,7 +111,9 @@ class LinksController < ApplicationController
         end
         link.tag_id = tag.id
         link.user_id = user.id
+        link.group_id = session[:group]
         unless link.save
+          puts link.errors.full_messages
         end
       end
     end
