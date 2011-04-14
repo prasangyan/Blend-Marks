@@ -1,7 +1,7 @@
 require "mail"
 class LinksController < ApplicationController
-
   before_filter "isuserloggedin" , :except => [:quickentry]
+  before_filter "setsubdomainasgroup"
   protect_from_forgery :except => [:addtag,:search,:readlinksfrommail,:quickentry]
 
   def index
@@ -14,19 +14,18 @@ class LinksController < ApplicationController
       redirect_to :action => "new"
       return
     end
-    @link = Link.new
     if @pattern.nil?
-       @links = Link.find(:all,:order => "id desc")
+       @links = Link.find(:all,:conditions => "group_id = '#{session[:group]}'", :order => "id desc")
     else
       tag = @tagsearch
       if tag == 0
         tag = 1
       end
-       @links = Link.find(:all, :conditions => "(link ~* '#{@pattern}' or description ~* '#{@pattern}') and tag = '#{@tagsearch}'")
+       @links = Link.find(:all,:conditions => "group_id = '#{session[:group]}'", :order => "id desc") #Link.find(:all, :conditions => "(link ~* '#{@pattern}' or description ~* '#{@pattern}') and tag = '#{@tagsearch}'")
     end
     @tag = Tag.new
     @tags = {}
-    Tag.find(:all).each do |tag|
+    Tag.all.each do |tag|
       @tags[tag.id] = tag.name
     end
     flash[:filter] = false
@@ -56,9 +55,9 @@ class LinksController < ApplicationController
   end
 
   def sendnotification
-    Notificationlink.find(:all).each do |link|
+    Notificationlink.all.each do |link|
       #User.find(:all, :conditions => "isnotificationsubscribed = true").each do |user|
-      User.find(:all).each do |user|
+      User.all.each do |user|
         UserMailer.deliver_linknotification(link,user,current_user)
       end
       link.destroy
@@ -83,27 +82,27 @@ class LinksController < ApplicationController
       tag.name = newtag
       tag.save
     end
-    @link.tag = tag
     @link.tag_id = tag.id
     @link.user_id = current_user.id
+    @link.group_id=session[:group]
     if @link.save
-      #render :text => "success#" + @link.id.to_s
+      render :text => "success"
     else
-      #render :text => "success#1"
+      render :text => @link.errors.full_messages[0]
     end
-    redirect_to :action => "index"
+    #redirect_to :action => "index"
   end
 
   def quickentry
-    id = params[:url]
+    url = params[:url]
     userbookmarkletkey = params[:key]
     tagname = 'unknown'
     unless id.nil? and userbookmarkletkey.nil?
       user = User.find(:first, :conditions => "bookmarkletcode = '#{userbookmarkletkey}'")
       unless user.nil?
         link = Link.new
-        link.link = id
-        link.title = id
+        link.link = url
+        link.title = url
         tag = Tag.find(:first, :conditions => "name = '#{tagname}'")
         if tag.nil?
           tag = Tag.new

@@ -1,5 +1,5 @@
 class ComingController < ApplicationController
-
+             before_filter "setsubdomainasgroup"
   def index
     @subscription = Subscription.new
     @message = nil

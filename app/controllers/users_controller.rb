@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_filter "setsubdomainasgroup"
     # GET /users/new
   # GET /users/new.xml
   def new

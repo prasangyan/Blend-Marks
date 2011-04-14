@@ -496,3 +496,11 @@ span.menu-button
     white-space: nowrap;
     z-index:999;
 }
+
+.errorbox
+{
+  color:#f25b50;
+  background-color:#fcf2f2;
+  padding:10px;
+  display:none;
+}

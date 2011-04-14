@@ -2,7 +2,7 @@ require 'digest/sha1'
 class User < ActiveRecord::Base
   acts_as_authentic
   belongs_to :link
-  validates_presence_of :username, :email
+  validates_presence_of :username, :email, :group_id
   validates_uniqueness_of :username, :email
   before_save :setbookmartletcode
 

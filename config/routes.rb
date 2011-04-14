@@ -1,4 +1,6 @@
 BlendMarks::Application.routes.draw do
+  get "error/index"
+
   get "coming/index"
 
   # The priority is based upon order of creation:
@@ -57,11 +59,14 @@ BlendMarks::Application.routes.draw do
   match "login", :controller => "user_sessions", :action => "new"
   match "logout", :controller => "user_sessions", :action => "destroy"
   match "register", :controller => "users", :action => "new"
+  match "error", :controller => "error", :action => "index"
 
   match 'forgotpassword', :controller => "users", :action => "forgotpassword"
   match 'resetpassword/:id', :controller => "users", :action => "resetpassword"
 
   match 'quickentry', :controller => "links", :action => "quickentry"
+
+  match 'addlink', :controller => "links", :action => "create"
 
   #root :controller => "links", :action => "index"
 

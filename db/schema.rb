@@ -10,7 +10,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110407110035) do
+ActiveRecord::Schema.define(:version => 20110413130336) do
+
+  create_table "groups", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "links", :force => true do |t|
     t.string   "link"
@@ -22,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20110407110035) do
     t.datetime "updated_at"
     t.text     "content"
     t.text     "title"
+    t.string   "group_id"
   end
 
   create_table "notificationlinks", :force => true do |t|
@@ -39,7 +46,7 @@ ActiveRecord::Schema.define(:version => 20110407110035) do
   create_table "tags", :force => true do |t|
     t.string   "name"
     t.text     "description"
-    t.integer :link_id
+    t.integer  "link_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -63,7 +70,8 @@ ActiveRecord::Schema.define(:version => 20110407110035) do
     t.string   "persistence_token"
     t.string   "reset_code"
     t.string   "bookmarkletcode"
-    t.integer :link_id
+    t.integer  "link_id"
+    t.string   "group_id"
   end
 
 end

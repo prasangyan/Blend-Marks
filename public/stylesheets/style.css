@@ -1025,8 +1025,19 @@ a.css3-button-blue:active
 
 .add-link-form
 {
-    display:none;
     background-color:#eee;
     padding:10px;
-    z-index:999;
+}
+.add-link-form textarea
+{
+    width: 400px;
+}
+
+
+.errorbox
+{
+  color:#f25b50;
+  background-color:#fcf2f2;
+  padding:10px;
+   display:none;
 }

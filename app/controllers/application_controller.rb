@@ -21,4 +21,13 @@ class ApplicationController < ActionController::Base
       session[:id] = params[:id]
     end
   end
+  def setsubdomainasgroup
+    group = Group.find(:all, :conditions => "title = '#{request.subdomain}'")
+    if group.count == 0
+      session[:group] = nil
+      redirect_to error_url
+    else
+      session[:group] = group[0].id
+    end
+  end
 end

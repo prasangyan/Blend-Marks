@@ -6,7 +6,7 @@
           <input type="text" name="searchcriteria">
           <a href="#" class>Search</a>
         </div>
-        <a href="#" class="css3-button submit-link"><span>Submit Link</span></a>
+        <a href="/links/new" class="css3-button submit-link"><span>Submit Link</span></a>
     </header>
     <div class="clearfix"></div>
     <div id="main" role="main">
@@ -34,8 +34,7 @@
     <div class="secondary-content-highlight">
       <a href="#" class="css3-button-blue">Invite your team</a>
       <p>or</p>
-      <% href = "javascript:try{var iframe=document.createElement("'"iframe"'");iframe.src="'"http://blendmarks.heroku.com/quickentry?url="'" + window.location + "'"&key=' + current_user.bookmarkletcode + '";document.body.appendChild(iframe);alert("'"BlendMark added"'");}catch(e){alert(e.message);}' %>
-
+      <% href = "javascript:try{var iframe=document.createElement("'"iframe"'");iframe.style.visibility="'"hidden"'";iframe.style.display="'"none"'";iframe.src="'"http://blendmarks.heroku.com/quickentry?url="'" + window.location + "'"&title="'" + document.title + "'"&key=' + current_user.bookmarkletcode + '";document.body.appendChild(iframe);alert("'"BlendMark added"'");}catch(e){alert(e.message);}' %>
       <a href='<%= href %>' class="css3-button">Drag and drop this into your favourites</a>
       <div>
       </div>
@@ -50,17 +49,3 @@
     </div>
     <footer>
     </footer>
-    <div class="add-link-form">
-        <%= form_for(@link) do |f| -%>
-              <label>Title</label>
-              <%= f.text_field :title, :id => "txttitle", :class => "small" -%>
-              <label>Link</label>
-              <%= f.text_field :link, :id => "txtlink", :class => "small", :value => session[:id] -%>
-              <% session[:id] = nil -%>
-              <label>Description</label>
-              <%= f.text_area :description,:class => "small",:id =>"txtdescription",:rows => "0" -%>
-              <label>Tag</label>
-              <input type="text" class="small" name="newtag">
-              <a href="#" class="css3-button" onclick="document.forms[0].submit()">Save link</a> or <a href="#" id ="lnkcancel">Cancel</a>
-        <% end -%>
-    </div>

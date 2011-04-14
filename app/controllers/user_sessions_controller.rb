@@ -1,4 +1,5 @@
 class UserSessionsController < ApplicationController
+                      before_filter "setsubdomainasgroup"
   # GET /user_sessions/new
   # GET /user_sessions/new.xml
   def new

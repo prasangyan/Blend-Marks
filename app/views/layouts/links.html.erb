@@ -7,15 +7,16 @@
 <head>
     <%= render :partial => "layouts/headertag" %>
     <%= stylesheet_link_tag 'style' %>
-    <%= javascript_include_tag "jquery-1.4.4.min" %>
-    <%= javascript_include_tag "jquery.quicksearch" %>
-    <%= javascript_include_tag "jquery.highlight-3" %>
-    <%= javascript_include_tag "links" %>
 </head>
 <body>
 <div id="container">
     <%= yield %>
 </div>
 <%= render :partial => "layouts/googleanalytics" %>
+<%= stylesheet_link_tag "jquery.fancybox-1.3.4" %>
+<%= javascript_include_tag "jquery-1.4.4.min" %>
+<%= javascript_include_tag "jquery.mousewheel-3.0.4.pack" %>
+<%= javascript_include_tag "jquery.fancybox-1.3.4.pack" %>
+<%= javascript_include_tag "links" %>
 </body>
 </html>
