@@ -1,12 +1,10 @@
 class UsersController < ApplicationController
   before_filter "setsubdomainasgroup"
-    # GET /users/new
-  # GET /users/new.xml
+
   def new
     @user = User.new
  end
-  # POST /users
-  # POST /users.xml
+
   def create
     @user = User.new(params[:user])
     @user.username = @user.email
@@ -19,11 +17,12 @@ class UsersController < ApplicationController
       render :action => "new"
     end
   end
+
   def edit
     @user = current_user
   end
 
- def forgotpassword
+  def forgotpassword
     unless params[:username].nil?
       user = User.find(:first, :conditions => "username = '#{params[:username]}'")
       unless user.nil?
@@ -69,8 +68,6 @@ class UsersController < ApplicationController
     render :resetpassword
   end
 
-  # PUT /users/1
-  # PUT /users/1.xml
   def update
     @user = current_user
       if @user.update_attributes(params[:user])
@@ -80,8 +77,7 @@ class UsersController < ApplicationController
         render :action => "edit"
       end
   end
-  # DELETE /users/1
-  # DELETE /users/1.xml
+
   def destroy
     @user = User.find(params[:id])
     @user.destroy
@@ -94,7 +90,26 @@ class UsersController < ApplicationController
   end
 
   def confirminvitation
-    render :text => "success"
+    unless params[:email].nil?
+      email = params[:email]
+      user = User.new
+      user.group_id = session[:group]
+      user.bookmarkletcode = User.random_string(10)
+      user.email = email
+      password = User.random_string(10)
+      user.password = password
+      user.password_confirmation = password
+      user.username =   email
+      user.isnotificationsubscribed=true
+      if user.save
+          user.send_invitation
+          render :text => "success"
+      else
+          render :text => user.errors.full_messages[0]
+      end
+    else
+      render :text => "invalid parameters passed."
+    end
   end
 
 end

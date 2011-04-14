@@ -21,24 +21,24 @@ $(function() {
                 $('.btnsendinvitation').trigger('click');
                 return false;
             });
-            $('.btnsendinvitation').click(function() {
+            function submitinvitationform(LnkButton)
+            {
                 try
                 {
-                    This = $('.btnsendinvitation');
-                    errorBox = $('.add-link-form .errorbox');
+                    var errorBox = $('.add-link-form .errorbox');
                     $.ajax({
                         url: "/confirminvitation",
-                        timeout: 10000,
+                        timeout: 20000,
                         //datatype: 'xml',
                         cache: false,
                         data: $('form').serialize(),
                         type: "POST",
                         //contentType: "application/xml; charset=utf-8",
                         beforeSend: function() {
-                            This.val("Adding......")
+                            LnkButton.unbind('click');
+                            LnkButton.html('please wait ....')
                         },
                         success: function(data) {
-                            debugger;
                             if (typeof (data) == typeof (int)) {
                                 showError(errorBox,"Unable to reach the server. Check your internet connection. Refresh the page to continue.");
                             }
@@ -49,12 +49,24 @@ $(function() {
                             {
                                showError(errorBox,data);
                             }
+                            LnkButton.html('Send invitation');
+                            LnkButton.click(function() {
+                                submitinvitationform($(this));
+                                return false;
+                            });
                         },
                         error: function(request, error) {
                             showError(errorBox,"Unable to reach the server. Refresh the page to continue.");
-                            This.val("Add link");
+                            LnkButton.html('Send invitation');
+                            LnkButton.click(function() {
+                                submitinvitationform($(this));
+                                return false;
+                            });
                         }});
                 }catch(e){alert(e);}
+            };
+            $('.btnsendinvitation').click(function() {
+                submitinvitationform($(this));
                 return false;
             });
         }
@@ -69,21 +81,21 @@ $(function() {
                 $('#addlink').trigger('click');
                 return false;
             });
-            $('#addlink').click(function() {
+            function addLink(LnkButton) {
                 try
                 {
-                    This = $('#addlink');
-                    errorBox = $('.add-link-form .errorbox');
+                    var errorBox = $('.add-link-form .errorbox');
                     $.ajax({
                         url: "/addlink",
-                        timeout: 10000,
+                        timeout: 20000,
                         //datatype: 'xml',
                         cache: false,
                         data: $('form').serialize(),
                         type: "POST",
                         //contentType: "application/xml; charset=utf-8",
                         beforeSend: function() {
-                            This.val("Adding......")
+                            LnkButton.unbind('click');
+                            LnkButton.html("please wait ....")
                         },
                         success: function(data) {
                             if (typeof (data) == typeof (int)) {
@@ -96,12 +108,25 @@ $(function() {
                             {
                                showError(errorBox,data);
                             }
+                            LnkButton.html('Save Link');
+                            LnkButton.click(function() {
+                                addLink($(this));
+                                return false;
+                            });
                         },
                         error: function(request, error) {
                             showError(errorBox,"Unable to reach the server. Refresh the page to continue.");
-                            This.val("Add link");
+                            LnkButton.html('Save Link');
+                            LnkButton.click(function() {
+                                addLink($(this));
+                                return false;
+                            });
                         }});
                 }catch(e){alert(e);}
+            };
+            $('#addlink').click(function() {
+                addLink($(this));
+                return false;
             });
         }
     });

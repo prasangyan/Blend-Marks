@@ -102,7 +102,7 @@ class LinksController < ApplicationController
       unless user.nil?
         link = Link.new
         link.link = url
-        link.title = url
+        link.title = params[:title]
         tag = Tag.find(:first, :conditions => "name = '#{tagname}'")
         if tag.nil?
           tag = Tag.new

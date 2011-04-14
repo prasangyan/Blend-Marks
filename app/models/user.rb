@@ -2,6 +2,7 @@ require 'digest/sha1'
 class User < ActiveRecord::Base
   acts_as_authentic
   belongs_to :link
+  belongs_to :group
   validates_presence_of :username, :email, :group_id
   validates_uniqueness_of :username, :email
   before_save :setbookmartletcode
@@ -11,6 +12,13 @@ class User < ActiveRecord::Base
     self.reset_code = reset_code
     self.save
     UserMailer.deliver_forgot_password(self, reset_code)
+  end
+
+  def send_invitation
+    reset_code = User.random_string(10)
+    self.reset_code = reset_code
+    self.save
+    UserMailer.deliver_invitation(self, reset_code,self.group.title)
   end
 
   protected

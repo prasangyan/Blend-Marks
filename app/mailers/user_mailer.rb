@@ -1,6 +1,6 @@
 class UserMailer < ActionMailer::Base
   default_url_options[:host] = "interestinglinks.heroku.com"
-    def userconfirmation(user)
+  def userconfirmation(user)
     setup_email(user,"Registration")
   end
   def urlnotiication(link,user)
@@ -15,6 +15,12 @@ class UserMailer < ActionMailer::Base
   def forgot_password(user,resetcode)
     setup_email(user, "reset your password")
     @resetcode = resetcode
+  end
+  def invitation(user,resetcode,groupname)
+    setup_email(user, "Invitation from BlendMark")
+    @resetcode = resetcode
+    @password = user.password
+    @groupname = groupname
   end
   protected
   def setup_email(user,subject)
