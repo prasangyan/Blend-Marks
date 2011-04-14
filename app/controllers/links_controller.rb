@@ -111,7 +111,7 @@ class LinksController < ApplicationController
         end
         link.tag_id = tag.id
         link.user_id = user.id
-        link.group_id = link.group.id
+        link.group_id = user.group_id
         unless link.save
           puts link.errors.full_messages
         end

@@ -17,10 +17,14 @@ $(function() {
         'type'			: 'ajax',
         'autoDimensions': 'true',
         'onComplete'    : function() {
-            $('#BtnFormSubmit').click(function() {
+            $('form').submit(function() {
+                $('.btnsendinvitation').trigger('click');
+                return false;
+            });
+            $('.btnsendinvitation').click(function() {
                 try
                 {
-                    This = $('#BtnFormSubmit');
+                    This = $('.btnsendinvitation');
                     errorBox = $('.add-link-form .errorbox');
                     $.ajax({
                         url: "/confirminvitation",
@@ -61,6 +65,10 @@ $(function() {
         'type'			: 'ajax',
         'autoDimensions': 'true',
         'onComplete'    : function() {
+            $('form').submit(function() {
+                $('#addlink').trigger('click');
+                return false;
+            });
             $('#addlink').click(function() {
                 try
                 {
