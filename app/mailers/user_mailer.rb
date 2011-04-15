@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default_url_options[:host] = "interestinglinks.heroku.com"
+  default_url_options[:host] = "blendmarks.com"
   def userconfirmation(user)
     setup_email(user,"Registration")
   end
