@@ -860,6 +860,34 @@ P.comment-details
 	-moz-box-shadow: 0px 2px 2px #ccc;
 	box-shadow: 0px 2px 2px #CCC;
 }
+/*Alert Messages*/
+DIV.alert-error
+{
+	padding: 5px 0;
+	background: #FFEFEE;
+	border-bottom: 1px solid #FF1300;
+	border-top: 1px solid #FF1300;
+	margin: 10px 0;
+	color: #FF1300;
+}
+DIV.alert-info
+{
+	padding: 5px 0;
+	background: #FFFCDD;
+	border-bottom: 1px solid #FFEB00;
+	border-top: 1px solid #FFEB00;
+	margin: 10px 0;
+	color: #969154;
+}
+DIV.alert-success
+{
+	padding: 5px 0;
+	background: #E0FFE4;
+	border-bottom: 1px solid #00E01C;
+	border-top: 1px solid #00E01C;
+	margin: 10px 0;
+	color: #00E01C;
+}
 /*Experiments
 CSS3 Buttons*/
 A.css3-button
