@@ -1,5 +1,6 @@
 $(function() {
     $('#BtnFormSubmit').click(function() {
+        $('input[type="password"]')[0].value = $.trim($('input[type="password"]')[0].value);
         $('form').submit();
     });
     $('#user_session_password,#user_password_confirmation').keypress(function(e)
