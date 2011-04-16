@@ -8,7 +8,7 @@
 * - yui.yahooapis.com/2.8.1/build/base/base.css
 * - camendesign.com/design/
 * - praegnanz.de/weblog/htmlcssjs-kickstart
- 
+
 *
 * html5doctor.com Reset Stylesheet (Eric Meyer's Reset Reloaded + HTML5 baseline)
 * v1.6.1 2010-09-17 | Authors: Eric Meyer & Richard Clark
@@ -97,7 +97,7 @@ PRE, CODE, KBD, SAMP
 }
 /**
 * Minimal base styles.
- 
+
 Always force a scrollbar in non-IE*/
 HTML
 {
@@ -270,7 +270,7 @@ A:hover
 * Primary styles
 *
 * Author:
- 
+
 Global Styles*/
 BODY
 {
@@ -480,12 +480,6 @@ INPUT
 	margin-top: 5px;
 	margin-bottom: 10px;
 }
-/*Todo:DRY: Repeated this style in the search box*/
-INPUT:focus
-{
-	background: #EDFCFF;
-	border: 1px solid #00A6CB;
-}
 /*Todo: See what will happen if I use input[type=text] instead of a class*/
 INPUT.small
 {
@@ -497,6 +491,11 @@ INPUT.small
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
+}
+INPUT.small:focus
+{
+	background: #EDFCFF;
+	border: 1px solid #00A6CB;
 }
 TEXTAREA:focus
 {
@@ -549,7 +548,6 @@ DIV#login-box
 DIV#login-box H1
 {
 	color: #CCCCCC;
-	margin-left: 5px;
 	font-size: 2.1em;
 }
 DIV#login-box LABEL
@@ -566,7 +564,6 @@ DIV#login-box .login-text
 {
 	width: 400px;
 	height: 20px;
-	padding: 5px;
 	border: 1px solid #999;
 }
 DIV#login-box .login-text:focus
@@ -576,13 +573,11 @@ DIV#login-box .login-text:focus
 }
 DIV#login-box FIELDSET
 {
-	padding: 5px;
-	margin-bottom: 5px;
+	margin-bottom: 10px;
 }
 DIV#login-box .forgot-password
 {
 	display: block;
-	padding-left: 5px;
 	margin-top: 20px;
 	font-size: 0.8em;
 	font-weight: bold;
@@ -590,31 +585,10 @@ DIV#login-box .forgot-password
 }
 DIV#login-box .forgot-password-information
 {
-	padding-left: 5px;
-}
-DIV#login-box .error
-{
-	padding-bottom: 5px;
-	padding-top: 5px;
-	padding-left: 5px;
-	padding-right: 5px;
-	background: #FFEFEE;
-	border-bottom: 1px solid #FF1300;
-	border-top: 1px solid #FF1300;
-	margin-bottom: 10px;
-}
-DIV#login-box .error-fieldset
-{
-	background-color: #FFEFEE;
-}
-DIV#login-box .error-fieldset P
-{
-	color: #FF1300;
 }
 #login-box SPAN
 {
 	font-size: 0.9em;
-	margin-left: 5px;
 }
 /*Header*/
 HEADER
@@ -863,7 +837,7 @@ P.comment-details
 /*Alert Messages*/
 DIV.alert-error
 {
-	padding: 5px 0;
+	padding: 5px;
 	background: #FFEFEE;
 	border-bottom: 1px solid #FF1300;
 	border-top: 1px solid #FF1300;
@@ -872,7 +846,7 @@ DIV.alert-error
 }
 DIV.alert-info
 {
-	padding: 5px 0;
+	padding: 5px;
 	background: #FFFCDD;
 	border-bottom: 1px solid #FFEB00;
 	border-top: 1px solid #FFEB00;
@@ -881,7 +855,7 @@ DIV.alert-info
 }
 DIV.alert-success
 {
-	padding: 5px 0;
+	padding: 5px;
 	background: #E0FFE4;
 	border-bottom: 1px solid #00E01C;
 	border-top: 1px solid #00E01C;
@@ -978,7 +952,7 @@ A.css3-button-blue:active
 }
 /**
 * Non-semantic helper classes: please define your styles before this section.
- 
+
 For image replacement*/
 .ir
 {
@@ -1012,7 +986,7 @@ www.webaim.org/techniques/css/invisiblecontent/  &  j.mp/visuallyhidden*/
 /*Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: drupal.org/node/897638*/
 .visuallyhidden.focusable:active, .visuallyhidden.focusable:focus
 {
-	clip: rect(auto auto auto auto);
+	clip: rect(auto, auto, auto, auto);
 	height: auto;
 	margin: 0;
 	overflow: visible;
@@ -1046,7 +1020,7 @@ j.mp/bestclearfix*/
 * Media queries for responsive design.
 *
 * These follow after primary styles so they will successfully override.
- 
+
 Style adjustments for portrait mode goes here
 Style adjustments for landscape mode goes here
 Grade-A Mobile Browsers (Opera Mobile, Mobile Safari, Android Chrome)
