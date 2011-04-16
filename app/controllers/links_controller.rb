@@ -1,4 +1,5 @@
 require "mail"
+require "indextank"
 class LinksController < ApplicationController
   before_filter "isuserloggedin" , :except => [:quickentry]
   before_filter "setsubdomainasgroup"
@@ -33,25 +34,33 @@ class LinksController < ApplicationController
 
   def search
     begin
-      @pageindex = 1
-      unless params[:pageindex].nil?
-        @pageindex = params[:pageindex].to_i
-      end
       @criteria = params[:criteria]
       # searching with the default text comparisons
       result = Link.find(:all, :conditions => "content like '%#{@criteria}%'")  #Yml.search_hash(@criteria)
-      @result = []
+      @links = []
       result.each do |res|
-        @result.push(res)
+        @links.push(res)
       end
       # searching with Index Tank
-      client = IndexTank::Client.new(ENV['INDEXTANK_API_URL'] || 'http://:vnNWPQglltomb3@xba3.api.indextank.com')
-      index = client.indexes(ENV['INDEXTANK_INDEX'])
+      client = IndexTank::Client.new('http://:ZugDaAAC61N0k8@drxq3.api.indextank.com')
+      index = client.indexes('idx')
       result = index.search(@criteria)
-      result.each do |res|
-        @result.push(Link.find(:first,:conditions => "id = #{res['docid']}"))
+      unless result["results"].nil?
+        res = result["results"]
+        begin
+          res.each do |rs|
+            begin
+              lnk = Link.find(:first,:conditions => "id = #{rs["docid"].to_s}")
+              unless lnk.nil?
+                @links.push(lnk)
+              end
+            end
+          end
+        rescue
+        end
       end
     end
+    render :index
   end
 
   def sendnotification

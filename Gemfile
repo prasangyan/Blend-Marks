@@ -17,6 +17,8 @@ gem "httparty"
 
 gem "sanitize"
 
+gem "indextank"
+
 
 
 # Use unicorn as the web server

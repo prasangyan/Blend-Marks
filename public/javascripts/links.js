@@ -136,4 +136,16 @@ $(function() {
         obj.slideDown(500);
         obj.delay(3000).slideUp(500);
      }
+    $('#searchcriteria').keypress(function(e)
+    {
+        if (e.which == 13)
+        {
+            if($.trim($(this)[0].value) != "")
+                window.location = "/search/" + $(this)[0].value;
+        }
+    });
+    $('#SearchButton').click(function() {
+        if($.trim($('#searchcriteria')[0].value) != "")
+            window.location = "/search/" + $('#searchcriteria')[0].value;
+    });
 });

@@ -1,12 +1,10 @@
 require "net/http"
 require "rubygems"
 require "sanitize"
-class ScrabcontentController < ApplicationController
-  def index
-
+require 'indextank'
+task :cron => :environment do
     client = IndexTank::Client.new('http://:ZugDaAAC61N0k8@drxq3.api.indextank.com')
     index = client.indexes('idx')
-
     counter = 1
     Link.find(:all, :conditions => "content = '' or content = NULL").each do |lnk|
       #begin
@@ -22,7 +20,6 @@ class ScrabcontentController < ApplicationController
         @result = @result.gsub(/\r?/, "")
         lnk.content = @result
         lnk.save
-
         # index tank indexing starts here
         begin
           index.document(lnk.id).add({ :text => @result })
@@ -37,5 +34,4 @@ class ScrabcontentController < ApplicationController
         break
       end
     end
-  end
 end
