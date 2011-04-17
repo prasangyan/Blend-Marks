@@ -90,6 +90,7 @@ class LinksController < ApplicationController
     @link.user_id = current_user.id
     @link.group_id=session[:group]
     if @link.save
+      delivernotifications
       render :text => "success"
     else
       render :text => @link.errors.full_messages[0]
