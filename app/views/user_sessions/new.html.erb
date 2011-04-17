@@ -5,26 +5,21 @@
         <%= form_for(@user_session,:url => "/user_sessions") do |f| %>
             <h1>Login</h1>
             <% if @user_session.errors.any? %>
-                <div class="error">
-                    <p>Please input valid Email and Password !</p>
+                <div class="alert-error">
+                    Looks like your username or password i s wrong.
                 </div>
             <% end %>
-            <!-- Add class="error-fieldset" to the fieldset tag in case there is an error, this class has to be added to any fieldset that has an error -->
             <fieldset>
                 <label>Email</label>
                 <%= f.text_field :username, :class => "small" %>
-                <!-- Message to be shown below the filed which has a problem
-                <p>Improper email format</p>
-                -->
             </fieldset>
             <fieldset>
                 <label>Password</label>
                 <%= f.password_field :password, :class => "small" %>
             </fieldset>
             <%= link_to 'Login', "#", :id => "BtnFormSubmit" ,:class => "css3-button" -%>
-            <div class="clearfix">
-                <p class="forgot-password">Did you <%= link_to "forget your password?", :controller => "users", :action => "forgotpassword" %></p>
-            </div>
+            <p class="forgot-password">Did you <%= link_to "forget your password?", :controller => "users", :action => "forgotpassword" %></p>
+            <div class="clearfix"></div>
         <% end %>
         </div>
     </div>
