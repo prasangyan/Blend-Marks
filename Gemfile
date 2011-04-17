@@ -19,6 +19,8 @@ gem "sanitize"
 
 gem "indextank"
 
+gem "iconv"
+
 
 
 # Use unicorn as the web server
