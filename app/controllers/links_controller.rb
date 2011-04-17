@@ -45,6 +45,7 @@ class LinksController < ApplicationController
       client = IndexTank::Client.new('http://:ZugDaAAC61N0k8@drxq3.api.indextank.com')
       index = client.indexes('idx')
       result = index.search(@criteria)
+      puts result
       unless result["results"].nil?
         res = result["results"]
         begin

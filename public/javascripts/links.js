@@ -102,6 +102,8 @@ $(function() {
                                 showError(errorBox,"Unable to reach the server. Check your internet connection. Refresh the page to continue.");
                             }
                             else if(data.indexOf("success") > -1) {
+                                // call notification action
+                                $.get('/sendnotification');
                                 window.location = "/";
                             }
                             else
