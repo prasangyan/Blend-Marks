@@ -37,6 +37,7 @@ task :cron => :environment do
         rescue
           puts "Error on pushing data to Index Tank due to : ",$!,"\\n"
         end
+      end
       rescue Exception => ex
         puts "Error on web content scrabing due to " + ex.message
       end
@@ -46,3 +47,4 @@ task :cron => :environment do
       end
     end
 end
+
