@@ -1,7 +1,9 @@
 require "net/http"
+require "net/https"
 require "rubygems"
 require "sanitize"
 require 'indextank'
+require 'uri'
 task :cron => :environment do
     client = IndexTank::Client.new('http://:ZugDaAAC61N0k8@drxq3.api.indextank.com')
     index = client.indexes('idx')
@@ -9,7 +11,16 @@ task :cron => :environment do
     Link.where(:content => nil).each do |lnk|
       begin
         puts lnk[:link]
-        @result = Net::HTTP.get(URI.parse(lnk[:link]))
+        uri = URI.parse(lnk[:link])
+        if uri.scheme.to_s = "http"
+          @result = Net::HTTP.get(uri)
+        else if uri.scheme.to_s = "https"
+          http = Net::HTTP.new(uri.host, uri.port)
+          http.use_ssl=true
+          http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+          request = Net::HTTP::Get.new(uri.request_uri)
+          @result = http.request(request)
+        end
         ic = Iconv.new('UTF-8//IGNORE', 'UTF-8')
         @result = ic.iconv(@result + ' ')[0..-2]
         @result.force_encoding('ASCII-8BIT') if defined?(Encoding) && body
