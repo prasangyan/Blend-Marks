@@ -5,12 +5,13 @@ class UserMailer < ActionMailer::Base
   end
   def urlnotiication(link,user)
     setup_email(user,"A new link added")
-    @newlink = link.link
+    @newlink = link[:link]
   end
-  def linknotification(link,user,current_user)
+  def linknotification(link,user,current_user,groupname)
     setup_email(user,"A new link added")
-    @newlink =  link.link
+    @newlink =  link[:link]
     @addedby = current_user.username
+    @groupname = groupname
   end
   def forgot_password(user,resetcode)
     setup_email(user, "reset your password")

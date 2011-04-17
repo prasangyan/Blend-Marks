@@ -65,13 +65,7 @@ class LinksController < ApplicationController
   end
 
   def sendnotification
-    Notificationlink.all.each do |link|
-      #User.find(:all, :conditions => "isnotificationsubscribed = true").each do |user|
-      User.all.each do |user|
-        UserMailer.deliver_linknotification(link,user,current_user)
-      end
-      link.destroy
-    end
+    delivernotifications
     render :text => "success"
   end
 
@@ -127,6 +121,7 @@ class LinksController < ApplicationController
         end
       end
     end
+    delivernotifications
     render :text => "success"
   end
 
@@ -196,4 +191,14 @@ class LinksController < ApplicationController
     return originalmessage
   end
 
+  private
+  def delivernotifications
+    Notificationlink.all.each do |link|
+      #User.find(:all, :conditions => "isnotificationsubscribed = true").each do |user|
+      User.all.each do |user|
+        UserMailer.deliver_linknotification(link,user,current_user,Group.where(:id => session[:group]).limit(1).title)
+      end
+      link.destroy
+    end
+  end
 end
