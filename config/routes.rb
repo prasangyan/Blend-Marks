@@ -71,20 +71,21 @@ BlendMarks::Application.routes.draw do
   match 'invitepeople', :controller => "users", :action => "invitepeople"
   match 'confirminvitation', :controller => "users", :action => "confirminvitation"
 
+  match 'addtag', :controller => "links", :action => "addtag"
+  match 'readmail', :controller => "links", :action => "readlinksfrommail"
+  match 'sendnotification',:controller => "links" , :action => "sendnotification"
+  match "subscribe", :controller => "coming", :action => "subscribe"
+
+
   match 'search/:criteria', :controller => "links", :action => "search"
   #root :controller => "links", :action => "index"
 
   match '/', :controller => "links", :action => "index" , :constraints => {:subdomain => "blendmarks"}
   match '/', :controller => "coming", :action => "index"
 
-
-
-  match "subscribe", :controller => "coming", :action => "subscribe"
   match ':controller/:action/:id'
   match ':controller/:action/:id.:format'
-  match 'addtag', :controller => "links", :action => "addtag"
-  match 'readmail', :controller => "links", :action => "readlinksfrommail"
-  match 'sendnotification',:controller => "links" , :action => "sendnotification"
+
   match 'search/:criteria', :controller => "links", :action => "search"
   match 'search/:criteria/:pageindex', :controller => "links", :action => "search"
   # See how all your routes lay out with "rake routes"
