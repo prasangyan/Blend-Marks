@@ -7,7 +7,7 @@ task :cron => :environment do
     index = client.indexes('idx')
     counter = 1
     Link.where(:content => nil).each do |lnk|
-      #begin
+      begin
         puts lnk[:link]
         @result = Net::HTTP.get(URI.parse(lnk[:link]))
         ic = Iconv.new('UTF-8//IGNORE', 'UTF-8')
@@ -26,9 +26,9 @@ task :cron => :environment do
         rescue
           puts "Error on pushing data to Index Tank due to : ",$!,"\\n"
         end
-      #rescue Exception => ex
-      #  puts "Error on web content scrabing due to " + ex.message
-      #end
+      rescue Exception => ex
+        puts "Error on web content scrabing due to " + ex.message
+      end
       counter += 1
       if counter > 25
         break
