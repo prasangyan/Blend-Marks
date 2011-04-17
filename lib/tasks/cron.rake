@@ -12,9 +12,9 @@ task :cron => :environment do
       begin
         puts lnk[:link]
         uri = URI.parse(lnk[:link])
-        if uri.scheme.to_s = "http"
+        if uri.scheme = "http"
           @result = Net::HTTP.get(uri)
-        else if uri.scheme.to_s = "https"
+        else if uri.scheme = "https"
           http = Net::HTTP.new(uri.host, uri.port)
           http.use_ssl=true
           http.verify_mode = OpenSSL::SSL::VERIFY_NONE
