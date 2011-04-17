@@ -196,7 +196,7 @@ class LinksController < ApplicationController
     Notificationlink.all.each do |link|
       #User.find(:all, :conditions => "isnotificationsubscribed = true").each do |user|
       User.all.each do |user|
-        UserMailer.deliver_linknotification(link,user,current_user,Group.where(:id => session[:group]).limit(1).title)
+        UserMailer.deliver_linknotification(link,user,current_user,Group.find(:first,:conditions => "id = '#{session[:group]}'").title)
       end
       link.destroy
     end
