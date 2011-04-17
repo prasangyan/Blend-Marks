@@ -6,7 +6,7 @@ task :cron => :environment do
     client = IndexTank::Client.new('http://:ZugDaAAC61N0k8@drxq3.api.indextank.com')
     index = client.indexes('idx')
     counter = 1
-    Link.find(:all, :conditions => "content = '' or content = NULL").each do |lnk|
+    Link.where(:content => nil).each do |lnk|
       #begin
         puts lnk[:link]
         @result = Net::HTTP.get(URI.parse(lnk[:link]))
