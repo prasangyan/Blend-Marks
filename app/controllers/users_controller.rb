@@ -9,9 +9,11 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     @user.username = @user.email
     @user.isnotificationsubscribed = true
+    @user.group_id = session[:group]
+    @user.bookmarkletcode = User.random_string(10)
     if @user.save
       flash[:notice] = 'Registration successfully completed.'
-      redirect_to root_url
+      redirect_to :controller => "links", :action => "index"
     else
       puts @user.errors.full_messages
       render :action => "new"

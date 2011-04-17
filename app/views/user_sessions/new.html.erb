@@ -6,7 +6,7 @@
             <h1>Login</h1>
             <% if @user_session.errors.any? %>
                 <div class="alert-error">
-                    Looks like your username or password i s wrong.
+                    Looks like your username or password is wrong.
                 </div>
             <% end %>
             <fieldset>
@@ -18,7 +18,7 @@
                 <%= f.password_field :password, :class => "small" %>
             </fieldset>
             <%= link_to 'Login', "#", :id => "BtnFormSubmit" ,:class => "css3-button" -%>
-            <p class="forgot-password">Did you <%= link_to "forget your password?", :controller => "users", :action => "forgotpassword" %></p>
+            <p class="forgot-password">Did you <%= link_to "forget your password?", :controller => "users", :action => "forgotpassword" %>or do you need to <%= link_to 'Register', register_url  -%></p>
             <div class="clearfix"></div>
         <% end %>
         </div>
