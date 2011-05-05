@@ -1,0 +1,2 @@
+Bookmarklet
+This bookmarklet allows you to quickly bookmark a page without ever leaving it. All you have to do is drag and drop the link above into your favourites list and click it anytime you want to book mark a page. For detailed information on how to use the bookmarklet see how you can do it for your FireFox, Chrome, SAfari or Internet Explorer.

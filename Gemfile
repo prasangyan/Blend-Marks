@@ -19,7 +19,6 @@ gem "sanitize"
 
 gem "indextank"
 
-gem "iconv"
 
 
 
