@@ -4,3 +4,4 @@ treetop --version 1.4.8
 authlogic --version 2.1.6
 httparty --version 0.7.4
 sanitize --version 2.0.1
+nokogiri
