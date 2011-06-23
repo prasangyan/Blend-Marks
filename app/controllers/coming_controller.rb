@@ -4,7 +4,6 @@ def index
     @subscription = Subscription.new
     @message = nil
     @success = false
-    redirect_to :controller => "links", :action => "index"
   end
 
   def subscribe

@@ -34,7 +34,7 @@
     <div class="secondary-content-highlight">
       <a href="invitepeople" class="css3-button-blue" id="Invitepeople">Invite your team</a>
       <p>or</p>
-      <% href = "var usertoken = '" + current_user.bookmarkletcode + "'; var eventOnce = false;function AddBookMark() {if (eventOnce == false) {var head = document.getElementsByTagName('head');var element = document.createElement('script');element.src = 'http://blendmarks.heroku.com/Javascripts/jq1.4.4._bm.js';element.type = 'text/javascript';head.item(0).appendChild(element);eventOnce = true;}return false;}"  #"javascript:try{var iframe=document.createElement("'"iframe"'");iframe.style.visibility="'"hidden"'";iframe.style.display="'"none"'";iframe.src="'"http://blendmarks.heroku.com/quickentry?url="'" + window.location + "'"&title="'" + document.title + "'"&key=' + current_user.bookmarkletcode + '";document.body.appendChild(iframe);alert("'"BlendMark added"'");}catch(e){alert(e.message);}' %>
+      <% href = "javascript:(function(){var element=document.createElement("'"script"'");element.setAttribute("'"src"'","'"http://blendmarks.heroku.com/javascripts/jq1.4.4._bm.js"'");element.setAttribute("'"language"'","'"javascript"'"); document.getElementsByTagName("'"body"'")[0].appendChild(element); var div = document.createElement("'"div"'"); div.id=%22usertoken%22; div.innerHTML = %22" + current_user.bookmarkletcode + "%22; div.style.display=%22none%22; document.getElementsByTagName("'"body"'")[0].appendChild(div);  })();"  %>
       <p>Drag this into your favourites toolbar</p>
       <a href='<%= href %>' class="css3-button">Add BlendMark</a>
       <div>
