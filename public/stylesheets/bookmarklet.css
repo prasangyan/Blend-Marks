@@ -1,0 +1,29 @@
+div.bmletnotification
+{
+    margin: 0px;
+    padding: 0px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    z-index: 9999;
+    background-color: #c80d0d;
+}
+div.bmletnotification table
+{
+  color: White;
+}
+div.bmletnotification .info
+{
+    width: 100%;
+    padding: 10px;
+    text-align:right;
+}
+div.bmletnotification .closebutton
+{
+    border: solid white 1px;
+    text-align:right;
+    padding-left:2px;
+    padding-right:2px;
+    cursor:pointer;
+}
