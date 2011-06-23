@@ -78,9 +78,9 @@ BlendMarks::Application.routes.draw do
 
 
   match 'search/:criteria', :controller => "links", :action => "search"
-  root :controller => "links", :action => "index"
+  #root :controller => "links", :action => "index"
 
-  #match '/', :controller => "links", :action => "index" , :constraints => {:subdomain => "blendmarks"}
+  match '/', :controller => "links", :action => "index" , :constraints => {:subdomain => "blendmarks"}
   #match '/', :controller => "coming", :action => "index"
 
   match ':controller/:action/:id'
