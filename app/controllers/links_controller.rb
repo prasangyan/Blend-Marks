@@ -119,18 +119,15 @@ class LinksController < ApplicationController
         link.group_id = user.group_id
         unless link.save
           puts link.errors.full_messages
-          render :text => "Oops! unable to add Blendmark due to something wrong happened at the server."
+          render :text => "Oops! unable to add Blendmark due to this link might already exists."
         else
           #delivernotifications
-          puts "success"
           render :text => "success"
         end
       else
-        puts "err"
         render :text => "Oops! unable to add Blendmark due to invalid user token value passed."
       end
     else
-      puts "err2"
       render :text => "Oops! unable to add Blendmark due to invalid token values passed."
     end
   end

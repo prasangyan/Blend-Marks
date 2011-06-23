@@ -167,7 +167,7 @@ c.fn["inner"+b]=function(){return this[0]?parseFloat(c.css(this[0],d,"padding"))
 b],f.body["scroll"+b],f.documentElement["scroll"+b],f.body["offset"+b],f.documentElement["offset"+b]);else if(e===B){f=c.css(f,d);var h=parseFloat(f);return c.isNaN(h)?f:h}else return this.css(d,typeof e==="string"?e:e+"px")}})})(window);
 
 $(function() {
-    var siteurl = 'http://blendmarks.heroku.com'; //'http://blendmarks.lvh.me:3000'; 
+    var siteurl = 'http://blendmarks.heroku.com'; //'http://blendmarks.lvh.me:3000'; //
     $('.bmletnotification').remove();
     $('head').append('<link href="' + siteurl + '/stylesheets/bookmarklet.css" rel="stylesheet" type="text/css" />');
     var div = jQuery("<div>",{'class': 'bmletnotification'});
@@ -175,20 +175,21 @@ $(function() {
     div.hide();
     $('body').append(div);
     $.ajax({
-        type: 'POST',
-        url: siteurl + "/quickentry?url='" + window.location + "&key=" + $.trim($('#usertoken').html()),
-        contentType: 'application/xml; charset=utf-8',
-        async: true,
-        cache: false,
+        type: 'GET',
+        url: siteurl + "/quickentry?url='" + window.location + "&key=" + $.trim($('#usertoken').html()) + "&title=" + document.title,
         timeout: 10000,
         beforeSend: function() {
             div.fadeIn(2000);
         },
         success: function(data) {
-            alert("success");    
-            alert(data.d);
+            if(data.d == "success")
+                div.find('.info').html('Blendmark addedd successfully.');
+            else
+                div.find('.info').html(data.d);
+            setTimeout(function() {
+                div.fadeOut(2000);
+            }, 3000);
         },
-        dataType: 'xml',
         error: function(xhr) {
             div.find('.info').html('Oops! unable to reach the server due to some technical problem.');
             setTimeout(function() {
