@@ -179,7 +179,7 @@ $(function() {
         url: siteurl + "/quickentry?url='" + window.location + "&key=" + $.trim($('#usertoken').html()) + "&title=" + document.title,
         timeout: 10000,
         beforeSend: function() {
-            div.fadeIn(2000);
+            div.fadeIn(500);
         },
         success: function(data) {
             if(data.d == "success")
@@ -191,7 +191,7 @@ $(function() {
             }, 3000);
         },
         error: function(xhr) {
-            div.find('.info').html('Oops! unable to reach the server due to some technical problem.');
+            div.find('.info').html('Oops! unable to reach the server due to some technical problem. ' + xhr.status);
             setTimeout(function() {
                 div.fadeOut(2000);
             }, 3000);
