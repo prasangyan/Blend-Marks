@@ -81,7 +81,7 @@ BlendMarks::Application.routes.draw do
   root :controller => "links", :action => "index"
 
   #match '/', :controller => "links", :action => "index" , :constraints => {:subdomain => "blendmarks"}
-  match '/', :controller => "coming", :action => "index"
+  #match '/', :controller => "coming", :action => "index"
 
   match ':controller/:action/:id'
   match ':controller/:action/:id.:format'
