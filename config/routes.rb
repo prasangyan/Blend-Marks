@@ -1,7 +1,7 @@
 BlendMarks::Application.routes.draw do
-  get "error/index"
+  #get "error/index"
 
-  get "coming/index"
+  #get "coming/index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
