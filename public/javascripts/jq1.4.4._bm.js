@@ -182,16 +182,16 @@ $(function() {
             div.fadeIn(500);
         },
         success: function(data) {
-            if(data.d == "success")
+            if(data.toString() == "success")
                 div.find('.info').html('Blendmark addedd successfully.');
             else
-                div.find('.info').html(data.d);
+                div.find('.info').html(data);
             setTimeout(function() {
                 div.fadeOut(2000);
             }, 3000);
         },
-        error: function(xhr) {
-            div.find('.info').html('Oops! unable to reach the server due to some technical problem. ' + xhr.status);
+        error: function(jqXHR) {
+            div.find('.info').html('Oops! unable to reach the server due to some technical problem. ' + jqXHR.responseText);
             setTimeout(function() {
                 div.fadeOut(2000);
             }, 3000);

@@ -119,7 +119,7 @@ class LinksController < ApplicationController
         link.group_id = user.group_id
         unless link.save
           puts link.errors.full_messages
-          render :text => "Oops! unable to add Blendmark due to this link might already exists."
+          render :text => "Oops! This Blendmark already exists."
         else
           #delivernotifications
           render :text => "success"
