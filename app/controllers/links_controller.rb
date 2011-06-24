@@ -99,6 +99,7 @@ class LinksController < ApplicationController
   end
 
   def quickentry
+    @status = ""
     url = params[:url]
     userbookmarkletkey = params[:key]
     tagname = 'unknown'
@@ -119,17 +120,18 @@ class LinksController < ApplicationController
         link.group_id = user.group_id
         unless link.save
           puts link.errors.full_messages
-          render :text => "Oops! This Blendmark already exists."
+          @status = "Oops! This Blendmark already exists."
         else
           #delivernotifications
-          render :text => "success"
+          @status = "success"
         end
       else
-        render :text => "Oops! unable to add Blendmark due to invalid user token value passed."
+        @status = "Oops! unable to add Blendmark due to invalid user token value passed."
       end
     else
-      render :text => "Oops! unable to add Blendmark due to invalid token values passed."
+      @status = "Oops! unable to add Blendmark due to invalid token values passed."
     end
+    render :layout => false
   end
 
   def addtag
