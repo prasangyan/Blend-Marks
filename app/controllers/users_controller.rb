@@ -1,10 +1,8 @@
 class UsersController < ApplicationController
   before_filter "setsubdomainasgroup"
-
   def new
     @user = User.new
  end
-
   def create
     @user = User.new(params[:user])
     @user.username = @user.email
@@ -29,7 +27,7 @@ class UsersController < ApplicationController
       user = User.find(:first, :conditions => "username = '#{params[:username]}'")
       unless user.nil?
         user.send_reset_password
-        @status = "An email has been send to you for resetting your BlendMarks password."
+        @status = "An email has been sent to you for resetting your password."
         render :success
       else
           @error = 'Invalid email address entered!'
@@ -58,7 +56,7 @@ class UsersController < ApplicationController
           @user.password = params[:password]
           @user.password_confirmation =     params[:password]
           if @user.save
-            @status = "Your password has been reseted successfully."
+            @status = "Your password has been modified."
           else
             @status = "Oops! We are unable to set your password."
           end

@@ -6,6 +6,12 @@
             <fieldset>
                 <p><%= @status %></p>
             </fieldset>
+            <fieldset>
+                <p>Or</p>
+            </fieldset>
+            <fieldset>
+              <p>You can try again by clicking <%= link_to "here", :controller => "user_sessions", :action => "new" %> to login.</p>
+            </fieldset>
         </div>
     </div>
 </div>

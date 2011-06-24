@@ -8,10 +8,14 @@ $(function() {
         if (e.which == 13)
             $('form').submit();
     });
-});
-
-setTimeout(hideflash,5000);
+    $('input[type="password"],input[type="text"]').last().keypress(function(e)
+    {
+        if (e.which == 13)
+            $('form').submit();
+    });
+    setTimeout(hideflash,5000);
     function hideflash()
     {
       $('.Flash_or_Notice').fadeOut(1000);
     }
+});
