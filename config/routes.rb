@@ -1,7 +1,7 @@
 BlendMarks::Application.routes.draw do
-  #get "error/index"
+  get "error/index"
 
-  #get "coming/index"
+  get "coming/index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -81,13 +81,15 @@ BlendMarks::Application.routes.draw do
   root :controller => "links", :action => "index"
 
   match '/', :controller => "links", :action => "index" , :constraints => {:subdomain => "blendmarks"}
-  #match '/', :controller => "coming", :action => "index"
+  match '/', :controller => "coming", :action => "index"
 
   match ':controller/:action/:id'
   match ':controller/:action/:id.:format'
 
   match 'search/:criteria', :controller => "links", :action => "search"
   match 'search/:criteria/:pageindex', :controller => "links", :action => "search"
+  match 'tag/:tag', :controller => "links", :action => "tagfilter"
+  match '/autocomplete', :controller => "links", :action => "tagautocomplete"
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.

@@ -17,11 +17,9 @@ class UsersController < ApplicationController
       render :action => "new"
     end
   end
-
   def edit
     @user = current_user
   end
-
   def forgotpassword
     unless params[:username].nil?
       user = User.find(:first, :conditions => "username = '#{params[:username]}'")
@@ -34,10 +32,8 @@ class UsersController < ApplicationController
       end
     end
   end
-
   def success
   end
-
   def resetpassword
     @user = nil
     unless params[:id].nil?
@@ -47,7 +43,6 @@ class UsersController < ApplicationController
       end
     end
   end
-
   def setpassword
     unless params[:password].nil? and params[:confirm_password].nil?
        unless params[:password].to_s != params[:confirm_password]
@@ -67,7 +62,6 @@ class UsersController < ApplicationController
     @user = User.where(:username => params[:username])
     render :resetpassword
   end
-
   def update
     @user = current_user
       if @user.update_attributes(params[:user])
@@ -77,13 +71,11 @@ class UsersController < ApplicationController
         render :action => "edit"
       end
   end
-
   def destroy
     @user = User.find(params[:id])
     @user.destroy
     redirect_to(users_url)
   end
-
   def invitepeople
      @user = User.new
      render :layouts=> false
@@ -92,21 +84,25 @@ class UsersController < ApplicationController
   def confirminvitation
     unless params[:email].nil?
       email = params[:email]
-      user = User.new
-      user.group_id = session[:group]
-      user.bookmarkletcode = User.random_string(10)
-      user.email = email
-      password = User.random_string(10)
-      user.password = password
-      user.password_confirmation = password
-      user.username =   email
-      user.isnotificationsubscribed=true
-      if user.save
-          user.send_invitation
-          render :text => "success"
-      else
-          render :text => user.errors.full_messages[0]
+      email.split("\n").each do |mail|
+        mail.split(";").each do |m|
+          user = User.new
+          user.group_id = session[:group]
+          user.bookmarkletcode = User.random_string(10)
+          user.email = m
+          password = User.random_string(10)
+          user.password = password
+          user.password_confirmation = password
+          user.username =   m
+          user.isnotificationsubscribed=true
+          if user.save
+            user.send_invitation
+          else
+            puts "error at saving user due to " + user.errors.full_messages[0]
+          end 
+        end
       end
+    render :text => "success"
     else
       render :text => "invalid parameters passed."
     end

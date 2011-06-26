@@ -1,10 +1,10 @@
 div.bmletnotification
 {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     position: absolute;
-    left: 0px;
-    top: 0px;
+    left: 0;
+    top: 0;
     width: 100%;
     z-index: 9999;
     background-color: #c80d0d;
@@ -12,6 +12,8 @@ div.bmletnotification
 div.bmletnotification table
 {
   color: White;
+  font: Arial;
+  font-size: 11px;
 }
 div.bmletnotification .info
 {
@@ -21,9 +23,11 @@ div.bmletnotification .info
 }
 div.bmletnotification .closebutton
 {
+    padding: 0;
+    margin: 0;
     border: solid white 1px;
     text-align:right;
-    padding-left:2px;
-    padding-right:2px;
+    padding-left: 2px;
+    padding-right: 2px;
     cursor:pointer;
 }

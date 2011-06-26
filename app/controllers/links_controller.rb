@@ -64,6 +64,25 @@ class LinksController < ApplicationController
     render :index
   end
 
+  def tagfilter
+    begin
+      tag = params[:tag]
+      @links = []
+      unless tag.empty? && tag.nil?
+        tags = Tag.where("lower(name) = '#{tag.to_s.downcase}'")
+        if(tags.count() > 0)
+          tagid =tags[0].id
+          # searching with the tag id
+          result = Link.find(:all, :conditions => "tag_id = '#{tagid}'")
+          result.each do |res|
+            @links.push(res)
+          end
+        end
+      end
+    end
+    render :index
+  end
+
   def sendnotification
     delivernotifications
     render :text => "success"
@@ -71,6 +90,7 @@ class LinksController < ApplicationController
 
   def new
     @link = Link.new
+    render :layout => false 
   end
 
   def edit
@@ -200,14 +220,29 @@ class LinksController < ApplicationController
     return originalmessage
   end
 
+  def tagautocomplete
+    query = params[:query]
+    result = {}
+    result[:query] = query
+    suggestions = []
+    Tag.where("lower(name) like '#{query}%'").each do |tag|
+      suggestions.push(tag.name)
+    end
+    result[:suggestions] = suggestions
+    result[:data] = []
+    render :json => result
+  end
+
   private
   def delivernotifications
-    Notificationlink.all.each do |link|
-      #User.find(:all, :conditions => "isnotificationsubscribed = true").each do |user|
-      User.all.each do |user|
-        UserMailer.deliver_linknotification(link,user,current_user,Group.find(:first,:conditions => "id = '#{session[:group]}'").title)
+    if(ENV['RAILS_ENV'].to_s != "development")
+      Notificationlink.all.each do |link|
+        #User.find(:all, :conditions => "isnotificationsubscribed = true").each do |user|
+        User.all.each do |user|
+          UserMailer.deliver_linknotification(link,user,current_user,Group.find(:first,:conditions => "id = '#{session[:group]}'").title)
+        end
+        link.destroy
       end
-      link.destroy
     end
   end
 end

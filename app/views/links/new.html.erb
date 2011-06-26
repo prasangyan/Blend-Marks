@@ -11,7 +11,20 @@
         <label>Description</label>
         <%= f.text_area :description,:class => "small",:id =>"txtdescription",:rows => "0" -%>
         <label>Tag</label>
-        <input type="text" class="small" name="newtag">
+        <input type="text" class="small" name="newtag" id="txttag">
         <a href="#" id="addlink" class="css3-button">Save link</a>
     <% end -%>
 </div>
+<%= stylesheet_link_tag "style_auto_complete" %>
+<%= javascript_include_tag "jquery-1.4.4.min" %>
+<%= javascript_include_tag "jquery.autocomplete" %>
+<script type="text/javascript" language="JavaScript">
+    $(function () {
+       try
+       {
+        var options = { 'serviceUrl' :'../autocomplete' };
+        $('#txttag').autocomplete(options);
+       }catch(e) {
+       }
+   });
+</script>

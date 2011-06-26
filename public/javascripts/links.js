@@ -29,6 +29,7 @@ $(function() {
                     $.ajax({
                         url: "/confirminvitation",
                         timeout: 20000,
+                        async:true,
                         //datatype: 'xml',
                         cache: false,
                         data: $('form').serialize(),
@@ -88,6 +89,7 @@ $(function() {
                     $.ajax({
                         url: "/addlink",
                         timeout: 20000,
+                        async: true,
                         //datatype: 'xml',
                         cache: false,
                         data: $('form').serialize(),
@@ -104,7 +106,8 @@ $(function() {
                             else if(data.indexOf("success") > -1) {
                                 // call notification action
                                 //$.get('/sendnotification');
-                                window.location = "/";
+                                //window.location = "/";
+                                window.location = window.location;
                             }
                             else
                             {
