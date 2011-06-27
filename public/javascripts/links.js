@@ -105,7 +105,7 @@ $(function() {
                             }
                             else if(data.indexOf("success") > -1) {
                                 // call notification action
-                                //$.get('/sendnotification');
+                                $.get('/sendnotification');
                                 //window.location = "/";
                                 window.location = window.location;
                             }

@@ -15,9 +15,11 @@ ActionMailer::Base.smtp_settings = {
         :smtp => true
   }
 ActionMailer::Base.delivery_method = :smtp
-ActionMailer::Base.default_content_type = "text/html"
+ActionMailer::Base.content_type = "text/html"
 
 ENV['INDEXTANK_API_URL'] = 'http://:vnNWPQglltomb3@xba3.api.indextank.com'
 ENV['INDEXTANK_INDEX'] = 'idx'
+
+ENV['NoOfLinksPerPage'] = '10'
 
 

@@ -15,14 +15,19 @@ class LinksController < ApplicationController
       redirect_to :action => "new"
       return
     end
+    noOfLinksperPage = ENV['NoOfLinksPerPage']
+    noOfLinksSkipCount = 0
+    unless params[:pageindex].nil? 
+      noOfLinksSkipCount = noOfLinksperPage.to_i * params[:pageindex].to_i
+    end
     if @pattern.nil?
-       @links = Link.find(:all,:conditions => "group_id = '#{session[:group]}'", :order => "id desc")
+       @links = Link.limit(noOfLinksperPage).offset(noOfLinksSkipCount).find(:all,:conditions => "group_id = '#{session[:group]}'", :order => "id desc")
     else
       tag = @tagsearch
       if tag == 0
         tag = 1
       end
-       @links = Link.find(:all,:conditions => "group_id = '#{session[:group]}'", :order => "id desc") #Link.find(:all, :conditions => "(link ~* '#{@pattern}' or description ~* '#{@pattern}') and tag = '#{@tagsearch}'")
+       @links = Link.limit(noOfLinksperPage).offset(noOfLinksSkipCount).find(:all,:conditions => "group_id = '#{session[:group]}'", :order => "id desc") #Link.find(:all, :conditions => "(link ~* '#{@pattern}' or description ~* '#{@pattern}') and tag = '#{@tagsearch}'")
     end
     @tag = Tag.new
     @tags = {}
@@ -30,6 +35,9 @@ class LinksController < ApplicationController
       @tags[tag.id] = tag.name
     end
     flash[:filter] = false
+     unless params[:pageindex].nil?
+       render :layout => false
+     end
   end
 
   def search
@@ -110,7 +118,7 @@ class LinksController < ApplicationController
     @link.user_id = current_user.id
     @link.group_id=session[:group]
     if @link.save
-      delivernotifications
+      #delivernotifications
       render :text => "success"
     else
       render :text => @link.errors.full_messages[0]
@@ -142,7 +150,7 @@ class LinksController < ApplicationController
           puts link.errors.full_messages
           @status = "Oops! This Blendmark already exists."
         else
-          delivernotifications
+          #delivernotifications
           @status = "success"
         end
       else

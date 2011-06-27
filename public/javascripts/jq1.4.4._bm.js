@@ -38,7 +38,10 @@ $(function() {
 	});
     $.get(siteurl + "/quickentry?url='" + window.location + "&key=" + $.trim($('#usertoken').html()) + "&title=" + document.title
     ).success(function() { div.find('.info').html("Blendmark added successfully."); closeStrip(); })
-      .complete(function() { div.find('.info').html("Blendmark adding process completed."); closeStrip(); });
+      .complete(function() { div.find('.info').html("Blendmark adding process completed."); closeStrip();
+        // for sending notification mails
+        $.get(siteurl + "/sendnotification")
+    });
     $('.closebutton').live('click',function() {
         $('.bmletnotification').fadeOut(500);
     });
