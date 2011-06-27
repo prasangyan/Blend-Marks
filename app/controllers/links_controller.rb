@@ -142,7 +142,7 @@ class LinksController < ApplicationController
           puts link.errors.full_messages
           @status = "Oops! This Blendmark already exists."
         else
-          #delivernotifications
+          delivernotifications
           @status = "success"
         end
       else
