@@ -34,7 +34,7 @@
     <div class="secondary-content-highlight">
       <a href="invitepeople" class="css3-button-blue" id="Invitepeople">Invite your team</a>
       <p>or</p>
-      <% href = "javascript:(function(){var element=document.createElement("'"script"'");element.setAttribute("'"src"'","'"http://blendmarks.lvh.me:3000/javascripts/jq1.4.4._bm.js"'");element.setAttribute("'"language"'","'"javascript"'"); document.getElementsByTagName("'"body"'")[0].appendChild(element); var div = document.createElement("'"div"'"); div.id=%22usertoken%22; div.innerHTML = %22" + current_user.bookmarkletcode + "%22; div.style.display=%22none%22; document.getElementsByTagName("'"body"'")[0].appendChild(div);  })();"  %>
+      <% href = "javascript:(function(){var element=document.createElement("'"script"'");element.setAttribute("'"src"'","'"http://blendmarks.heroku.com/javascripts/jq1.4.4._bm.js"'");element.setAttribute("'"language"'","'"javascript"'"); document.getElementsByTagName("'"body"'")[0].appendChild(element); var div = document.createElement("'"div"'"); div.id=%22usertoken%22; div.innerHTML = %22" + current_user.bookmarkletcode + "%22; div.style.display=%22none%22; document.getElementsByTagName("'"body"'")[0].appendChild(div);  })();"  %>
       <p>Drag this into your favourites toolbar</p>
       <a href='<%= href %>' class="css3-button">Add BlendMark</a>
       <div>
