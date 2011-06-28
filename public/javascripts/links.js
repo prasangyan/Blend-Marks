@@ -67,7 +67,12 @@ $(function() {
                 }catch(e){alert(e);}
             };
             $('.btnsendinvitation').click(function() {
-                submitinvitationform($(this));
+                if($('.add-link-form textarea').validateText({class: 'inputBoxError'}))
+                    submitinvitationform($(this));
+                else
+                {
+                    showError($('.add-link-form .errorbox'),"Please input email !");
+                }
                 return false;
             });
         }
@@ -130,7 +135,12 @@ $(function() {
                 }catch(e){alert(e);}
             };
             $('#addlink').click(function() {
-                addLink($(this));
+                if($('.add-link-form input[type="text"]').validateText({class: 'inputBoxError'}))
+                    addLink($(this));
+                else
+                {
+                    showError($('.add-link-form .errorbox'),"Unable to save link, Please check your inputs !");
+                }
                 return false;
             });
         }

@@ -35,14 +35,19 @@ class LinksController < ApplicationController
       @tags[tag.id] = tag.name
     end
     flash[:filter] = false
-     unless params[:pageindex].nil?
+    unless params[:pageindex].nil?
        render :layout => false
-     end
+    end
   end
 
   def search
     begin
       @criteria = params[:criteria]
+      noOfLinksperPage = ENV['NoOfLinksPerPage']
+      noOfLinksSkipCount = 0
+      unless params[:pageindex].nil?
+        noOfLinksSkipCount = noOfLinksperPage.to_i * params[:pageindex].to_i
+      end
       # searching with the default text comparisons
       result = Link.find(:all, :conditions => "content like '%#{@criteria}%'")  #Yml.search_hash(@criteria)
       @links = []
@@ -53,7 +58,6 @@ class LinksController < ApplicationController
       client = IndexTank::Client.new('http://:ZugDaAAC61N0k8@drxq3.api.indextank.com')
       index = client.indexes('idx')
       result = index.search(@criteria)
-      puts result
       unless result["results"].nil?
         res = result["results"]
         begin
@@ -68,27 +72,41 @@ class LinksController < ApplicationController
         rescue
         end
       end
+      @links = @links[noOfLinksSkipCount.to_i,noOfLinksperPage.to_i]
     end
-    render :index
+    unless params[:pageindex].nil?
+       render :index, :layout => false
+    else
+       render :index
+    end
   end
 
   def tagfilter
     begin
       tag = params[:tag]
+      noOfLinksperPage = ENV['NoOfLinksPerPage']
+      noOfLinksSkipCount = 0
+      unless params[:pageindex].nil?
+        noOfLinksSkipCount = noOfLinksperPage.to_i * params[:pageindex].to_i
+      end
       @links = []
       unless tag.empty? && tag.nil?
         tags = Tag.where("lower(name) = '#{tag.to_s.downcase}'")
         if(tags.count() > 0)
           tagid =tags[0].id
           # searching with the tag id
-          result = Link.find(:all, :conditions => "tag_id = '#{tagid}'")
+          result = Link.limit(noOfLinksperPage).offset(noOfLinksSkipCount).find(:all, :conditions => "tag_id = '#{tagid}'")
           result.each do |res|
             @links.push(res)
           end
         end
       end
     end
-    render :index
+    unless params[:pageindex].nil?
+       render :index, :layout => false
+    else
+       render :index
+    end
   end
 
   def sendnotification

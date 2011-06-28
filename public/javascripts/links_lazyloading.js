@@ -2,7 +2,7 @@ $(function() {
     var pageIndex = 1;
     function LoadLinks() {
         $.ajax({
-            url: "/links/index/" + pageIndex,
+            url: $.trim($('#pageReference').html()) + "/" + pageIndex, //"/links/index/" + pageIndex,
             async: true,
             cache: false,
             type: 'GET',
@@ -22,7 +22,6 @@ $(function() {
                 $('.AjaxLoadingPanel').fadeOut(500);
             },
             error: function (e) {
-                alert(e);
                 //setTimeout(LoadLinks(),10000);
                 $('.AjaxLoadingPanel').fadeOut(500);
             }

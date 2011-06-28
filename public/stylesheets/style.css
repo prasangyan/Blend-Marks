@@ -1135,3 +1135,8 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust:none; }
 	padding: 10px;
 	display: none;
 }
+
+.inputBoxError
+{
+    border: solid 1px #F25B50;
+}

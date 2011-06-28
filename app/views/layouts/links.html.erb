@@ -41,6 +41,15 @@
     </div>
     <footer>
     </footer>
+    <div id="pageReference">
+        <% if params[:action].to_s.downcase == "index" %>
+            <%= "/links/index" %>
+        <% elsif params[:action].to_s.downcase == "search" %>
+            <%= "/search/#{@criteria}" %>
+        <% elsif params[:action].to_s.downcase == "tagfilter" %>
+            <%= "/tag/#{params[:tag]}" %>
+        <% end %>
+    </div>
     <%= render "layouts/loadingPanel" %>
 </div>
 <%= render :partial => "layouts/googleanalytics" %>
@@ -48,6 +57,7 @@
 <%= javascript_include_tag "jquery-1.4.4.min" %>
 <%= javascript_include_tag "jquery.mousewheel-3.0.4.pack" %>
 <%= javascript_include_tag "jquery.fancybox-1.3.4.pack" %>
+<%= javascript_include_tag "JQValidation" %>
 <%= javascript_include_tag "links" %>
 <%= javascript_include_tag "links_lazyloading" %>
 </body>
