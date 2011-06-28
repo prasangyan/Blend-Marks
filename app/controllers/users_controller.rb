@@ -76,6 +76,7 @@ class UsersController < ApplicationController
     @user.destroy
     redirect_to(users_url)
   end
+
   def invitepeople
      @user = User.new
      render :layouts=> false
