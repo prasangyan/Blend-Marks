@@ -7,19 +7,24 @@ $(function() {
             cache: false,
             type: 'GET',
             data: {},
+            contentType: 'text/html; charset=utf-8',
+            dataType: 'text/html',
             beforeSend: function() {
+                 $('.AjaxLoadingPanel').fadeIn(500);  
             },
             success: function (data) {
-                $('.link').append($(data).find('.link').html());
+                $('#main').append($(data).html());
                 pageIndex += 1;
                 if($(data).find('.link li').size() > 0)
+                {
                     scrollLock = false;
+                }
+                $('.AjaxLoadingPanel').fadeOut(500);
             },
-            error: function () {
+            error: function (e) {
+                alert(e);
                 //setTimeout(LoadLinks(),10000);
-            },
-            xhrFields: {
-                withCredentials: true
+                $('.AjaxLoadingPanel').fadeOut(500);
             }
         });
     }
@@ -28,7 +33,8 @@ $(function() {
         if(!scrollLock)
         {
             var scrollheight = $(window).height() + $(window).scrollTop();
-            if( ($.getDocHeight() - scrollheight) < 10 )
+            var docHeight = $.getDocHeight() ;
+            if( (docHeight - scrollheight) < 10 )
             {
                 scrollLock = true;
                 LoadLinks();

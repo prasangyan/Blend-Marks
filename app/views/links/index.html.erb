@@ -1,16 +1,4 @@
-<!--- body -->
-    <header>
-        <%= image_tag 'logo.png' %>
-        <!-- Search -->
-        <div id="search">
-          <input type="text" name="searchcriteria" id="searchcriteria">
-          <a href="#" id="SearchButton">Search</a>
-        </div>
-        <%= link_to "<span>Submit Link</span>".html_safe, {:controller => "links", :action => "new" } , :class => "css3-button submit-link" %>
-    </header>
-    <div class="clearfix"></div>
-    <div id="main" role="main">
-    <!-- Add Link form -->
+    <div id="main" role="main" >
     <% if @links.count() > 0 -%>
         <% @links.each do |link|%>
             <ul class="link">
@@ -31,22 +19,4 @@
         <% end %>
     <% end %>
     </div>
-    <div class="secondary-content-highlight">
-      <a href="invitepeople" class="css3-button-blue" id="Invitepeople">Invite your team</a>
-      <p>or</p>
-      <% href = "javascript:(function(){var element=document.createElement("'"script"'");element.setAttribute("'"src"'","'"http://blendmarks.heroku.com/javascripts/jq1.4.4._bm.js"'");element.setAttribute("'"language"'","'"javascript"'"); document.getElementsByTagName("'"body"'")[0].appendChild(element); var div = document.createElement("'"div"'"); div.id=%22usertoken%22; div.innerHTML = %22" + current_user.bookmarkletcode + "%22; div.style.display=%22none%22; document.getElementsByTagName("'"body"'")[0].appendChild(div);  })();"  %>
-      <p>Drag this into your favourites toolbar</p>
-      <a href='<%= href %>' class="css3-button">Add BlendMark</a>
-      <div>
-      </div>
-    </div>
-    <div class="secondary-content-sub-items">
-      <h3>Browse by tag</h3>
-      <div class="tags">
-        <% Tag.find(:all).each do |t| %>
-            <%= link_to t.name, "/tag/" + t.name %>
-        <% end %>
-      </div>
-    </div>
-    <footer>
-    </footer>
+

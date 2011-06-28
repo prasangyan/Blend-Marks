@@ -1,0 +1,21 @@
+.AjaxLoadingPanel
+{
+    padding:0;
+    margin:0;
+    width: 100%;
+    left:0;
+    position:fixed;
+    bottom:0;
+    overflow:auto;
+    text-align:right;
+    display:none;
+}
+.AjaxLoadingPanel div
+{
+    float:right;
+    margin:5px;
+    padding:5px;
+    color:#444;
+    border: solid 1px #fff;
+    background-color: #ddd;
+}
