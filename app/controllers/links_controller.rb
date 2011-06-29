@@ -6,6 +6,7 @@ class LinksController < ApplicationController
   protect_from_forgery :except => [:addtag,:search,:readlinksfrommail,:quickentry]
 
   def index
+
     #flash[:notice] = "welcome to interesting links."
     if session[:id].nil?
       session[:id] = params[:id]

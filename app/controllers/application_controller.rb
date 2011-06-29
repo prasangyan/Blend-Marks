@@ -1,3 +1,7 @@
+require 'rubygems'
+require 'net/http'
+require 'uri'
+
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
@@ -30,4 +34,36 @@ class ApplicationController < ActionController::Base
       session[:group] = group[0].id
     end
   end
+
+  def rescue_action_locally(exception)
+    rescue_action_in_public(exception)
+    super
+  end
+
+  def rescue_action_in_public(exception)
+    # all exception handling here
+    begin
+      if(ENV['RAILS_ENV'].to_s != "development")
+        error = Error.new
+        error.title = exception.message
+        error.fulltrace = exception.backtrace.join("\r\n")
+        if error.save  # to avoid creating of repeated bug in pivotal tracker, unless dump of errors may exists in pivotal tracker
+          # upload this bug to pivotal tracker
+          projectid = "241805"
+          key = "1155359c5df5c25fa1c81e0de22e22c2"
+          errorTitle = exception.message
+          errorDescription = exception.backtrace.join("\r\n")
+          resource_uri = URI.parse("http://www.pivotaltracker.com/services/v3/projects/#{projectid}/stories")
+          headers = {'Content-Type' => 'application/xml', 'X-TrackerToken' => key }
+          data = "<story><story_type>bug</story_type><name>#{errorTitle}</name><description>#{errorDescription}</description></story>"
+          @response = Net::HTTP.start(resource_uri.host,resource_uri.port) { |http|
+            http.post(resource_uri.path,data,headers)
+          }
+        end
+      end
+    rescue
+    end
+    render :template => "error/index"
+  end
+
 end

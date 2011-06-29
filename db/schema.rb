@@ -10,7 +10,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110413130336) do
+ActiveRecord::Schema.define(:version => 20110629151930) do
+
+  create_table "errors", :force => true do |t|
+    t.string   "title"
+    t.text     "fulltrace"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "groups", :force => true do |t|
     t.string   "title"
