@@ -67,7 +67,7 @@ $(function() {
                 }catch(e){alert(e);}
             };
             $('.btnsendinvitation').click(function() {
-                if($('.add-link-form textarea').validateText({class: 'inputBoxError'}))
+                if($('.add-link-form textarea').validateText({cssclass: 'inputBoxError'}))
                     submitinvitationform($(this));
                 else
                 {
@@ -135,7 +135,7 @@ $(function() {
                 }catch(e){alert(e);}
             };
             $('#addlink').click(function() {
-                if($('.add-link-form input[type="text"]').validateText({class: 'inputBoxError'}))
+                if($('.add-link-form input[type="text"]').validateText({cssclass: 'inputBoxError'}))
                     addLink($(this));
                 else
                 {
