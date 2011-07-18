@@ -1,8 +1,12 @@
 require 'test_helper'
+require 'authlogic/test_case'
 
 class LinksControllerTest < ActionController::TestCase
-  # Replace this with your real tests.
-  test "the truth" do
-    assert true
+
+  setup do
   end
+
+  test "check Link controller actions" do
+  end
+
 end

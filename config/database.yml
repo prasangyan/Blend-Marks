@@ -11,7 +11,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: BelndMarks_development
+  database: BlendMarks_development
   pool: 5
   username: postgres
   password: password@123
@@ -38,7 +38,7 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: BelndMarks_test
+  database: BlendMarks_test
   pool: 5
   username: postgres
   password: password@123
@@ -47,7 +47,7 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: BelndMarks_production
+  database: BlendMarks_production
   pool: 5
   username: postgres
   password: password@123

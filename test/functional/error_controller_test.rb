@@ -1,9 +1,13 @@
 require 'test_helper'
+require 'authlogic/test_case'
 
 class ErrorControllerTest < ActionController::TestCase
-  test "should get index" do
-    get :index
-    assert_response :success
+
+  setup do
+  end
+
+  test "check the error handling controller" do
+    
   end
 
 end

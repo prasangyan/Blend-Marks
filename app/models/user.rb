@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   belongs_to :link
   belongs_to :group
   validates_presence_of :username, :email, :group_id
+  validates_format_of :email, :with => %r{^(?:[_a-z0-9|+-]+)(\.[_a-z0-9|+-]+)*@([a-z0-9-]+)(\.[a-zA-Z0-9\-\.]>> +)*(\.[a-z]{2,4})$}i, :message => "invalid email format."
   validates_uniqueness_of :username, :email
   before_save :setbookmartletcode
 

@@ -1,8 +1,12 @@
 require 'test_helper'
+require 'authlogic/test_case'
 
 class UsersControllerTest < ActionController::TestCase
-  # Replace this with your real tests.
-  test "the truth" do
-    assert true
+
+  setup do
   end
+
+  test "check users controller actions" do
+  end
+
 end
