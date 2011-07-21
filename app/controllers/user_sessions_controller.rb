@@ -6,6 +6,7 @@ class UserSessionsController < ApplicationController
     @user_session = UserSession.new
     #render :layout => "links"
   end
+
   # POST /user_sessions
   # POST /user_sessions.xml
   def create
@@ -19,6 +20,7 @@ class UserSessionsController < ApplicationController
       render :action => "new"
     end
   end
+
   # DELETE /user_sessions/1
   # DELETE /user_sessions/1.xml
   def destroy

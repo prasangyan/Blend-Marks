@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(:version => 20110629151930) do
     t.string   "username"
     t.string   "email"
     t.boolean  "isnotificationsubscribed"
+    t.integer  "link_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "crypted_password"
@@ -77,82 +78,7 @@ ActiveRecord::Schema.define(:version => 20110629151930) do
     t.string   "persistence_token"
     t.string   "reset_code"
     t.string   "bookmarkletcode"
-    t.integer  "link_id"
     t.string   "group_id"
   end
 
-  # for testing purpose
-  create_table "user_session", :force => true do |t|
-    t.string   "username"
-    t.string   "password"
-    t.boolean  "remember_me"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "user", :force => true do |t|
-    t.string   "username"
-    t.string   "email"
-    t.boolean  "isnotificationsubscribed"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "crypted_password"
-    t.string   "password_salt"
-    t.string   "persistence_token"
-    t.string   "reset_code"
-    t.string   "bookmarkletcode"
-    t.integer  "link_id"
-    t.string   "group_id"
-  end
-
-  create_table "error", :force => true do |t|
-    t.string   "title"
-    t.text     "fulltrace"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "group", :force => true do |t|
-    t.string   "title"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "link", :force => true do |t|
-    t.string   "link"
-    t.text     "description"
-    t.integer  "tag_id"
-    t.integer  "user_id"
-    t.integer  "createdby"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.text     "content"
-    t.text     "title"
-    t.string   "group_id"
-  end
-
-  create_table "notificationlink", :force => true do |t|
-    t.string   "link"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "subscription", :force => true do |t|
-    t.string   "email"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "tag", :force => true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.integer  "link_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "contentsearch", :force => true do |t|
-
-  end
-  
 end

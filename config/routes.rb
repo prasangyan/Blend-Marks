@@ -1,9 +1,6 @@
 BlendMarks::Application.routes.draw do
   get "error/index"
   get "coming/index"
-  resources :coming
-  resources :user_sessions
-  resources :links
   match "login", :controller => "user_sessions", :action => "new"
   match "logout", :controller => "user_sessions", :action => "destroy"
   match "register", :controller => "users", :action => "new"
@@ -20,8 +17,13 @@ BlendMarks::Application.routes.draw do
   match 'search/:criteria(/:pageindex)', :controller => "links", :action => "search"
   match '/', :controller => "links", :action => "index" , :constraints => {:subdomain => "blendmarks"}
   match '/', :controller => "coming", :action => "index"
-  match 'links/index/:pageindex', :controller => "links", :action => "index"
+  match 'links/index(/:pageindex)', :controller => "links", :action => "index"
   match ':controller/:action(/:id)'
+  match ':controller/:action'
   match 'tag/:tag(/:pageindex)', :controller => "links", :action => "tagfilter"
   match '/autocomplete', :controller => "links", :action => "tagautocomplete"
+  resources :links
+  resource :users
+  resources :coming
+  resources :user_sessions
 end

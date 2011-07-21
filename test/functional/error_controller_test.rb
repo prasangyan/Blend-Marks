@@ -7,6 +7,9 @@ class ErrorControllerTest < ActionController::TestCase
   end
 
   test "check the error handling controller" do
+
+    get :index
+    assert_response :success, "Error handling page not opened"
     
   end
 
