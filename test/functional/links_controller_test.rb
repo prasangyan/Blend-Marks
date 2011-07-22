@@ -6,11 +6,19 @@ class LinksControllerTest < ActionController::TestCase
     setup :activate_authlogic
 
   setup do
+
     @request.host = "test.local.host"
-    
+
   end
 
   test "check Link controller actions without logged in" do
+
+      # to log out if its logged in with another test controller
+      @controller = UserSessionsController.new
+      get :destroy
+
+      # get back to the links controller
+      @controller = LinksController.new
 
       # trying to get links home page without login
       get "index"
@@ -59,7 +67,7 @@ class LinksControllerTest < ActionController::TestCase
       # posting the log in information 
       @controller = UserSessionsController.new
       post :create, :user_session => {:username => "santhosh@itxsolutionsindia.com", :password => "password@123"}
-      assert_equal "Successfully loggedin.",  flash[:notice].to_s
+      assert_equal "Successfully logged in.",  flash[:notice].to_s
       assert_redirected_to :controller => "links", :action => "index"
 
       # come back to Links
@@ -278,9 +286,12 @@ class LinksControllerTest < ActionController::TestCase
       get :tagautocomplete, :query => "tag"
       assert_response :success
       res = ActiveSupport::JSON.decode (@response.body)
+      assert_equal res, {"query"=>"tag", "suggestions"=>["tag1234", "tag12345"], "data"=>[]}
       #assert_equal res[:suggestions][0].to_s , "tag1234"
       #assert_equal res[:suggestions][0].to_s , "tag12345"
 
+	  
+	  
   end
 
   def set_login

@@ -1,80 +1,118 @@
 class UsersController < ApplicationController
   before_filter "setsubdomainasgroup"
+  before_filter "isuserloggedin", :only =>["edit", "update","destroy", "invitepeople", "confirminvitation"]
+
   def new
     @user = User.new
- end
+  end
+
   def create
-    @user = User.new(params[:user])
-    @user.username = @user.email
-    @user.isnotificationsubscribed = true
-    @user.group_id = session[:group]
-    @user.bookmarkletcode = User.random_string(10)
-    if @user.save
-      flash[:notice] = 'Registration successfully completed.'
-      redirect_to :controller => "links", :action => "index"
+    unless params[:user].nil?
+      @user = User.new(params[:user])
+      @user.username = @user.email
+      @user.isnotificationsubscribed = true
+      @user.group_id = session[:group]
+      @user.bookmarkletcode = User.random_string(10)
+      if @user.save
+        flash[:notice] = 'Registration successfully completed.'
+        redirect_to :controller => "links", :action => "index"
+      else
+        flash[:notice] = "Invalid parameter values passed."
+        #puts @user.errors.full_messages
+        render :action => "new"
+      end
     else
-      puts @user.errors.full_messages
+      flash[:notice] = 'user credentials not passed.'
       render :action => "new"
     end
   end
+
   def edit
     @user = current_user
   end
+
+  def update
+    unless params[:user].nil?
+      @user = current_user
+      if @user.update_attributes(params[:user])
+        flash[:notice] = 'Your profile updated successfully.'
+        redirect_to :controller => "links", :action => "index"
+      else
+        #puts @user.errors.full_messages
+        flash[:notice] = 'Invalid parameters passed.'
+        render :action => "edit"
+      end
+    else
+      flash[:notice] = 'User credentials not passed.'
+      edit
+      render :edit
+    end
+  end
+
   def forgotpassword
     unless params[:username].nil?
-      user = User.find(:first, :conditions => "username = '#{params[:username]}'")
+      user = User.find_by_username(params[:username].to_s)
       unless user.nil?
+        @error = nil
         user.send_reset_password
         @status = "An email has been sent to you for resetting your password."
         render :success
       else
-          @error = 'Invalid email address entered!'
+        @error = 'Invalid email address entered!'
       end
     end
   end
+
   def success
+    @status = ""
   end
+
   def resetpassword
-    @user = nil
     unless params[:id].nil?
-      user = User.find(:first, :conditions => "reset_code = '#{params[:id]}'")
-      unless user.nil?
-        @user = user
+      @user = User.where(:reset_code => params[:id]).first
+      if @user.nil?
+        redirect_to :controller => "error", :action => "index"
       end
+    else
+      redirect_to :controller => "error", :action => "index"
     end
   end
+
   def setpassword
-    unless params[:password].nil? and params[:confirm_password].nil?
-       unless params[:password].to_s != params[:confirm_password]
-          @user = User.where(:username => params[:username]).limit(1)
-          @user = @user[0]
-          @user.password = params[:password]
-          @user.password_confirmation =     params[:password]
-          if @user.save
-            @status = "Your password has been modified."
-          else
-            @status = "Oops! We are unable to set your password."
+    unless params[:username].nil?
+      unless params[:password].nil?
+        unless params[:confirm_password].nil?
+          unless params[:password].to_s != params[:confirm_password]
+            @user = User.find_by_username(params[:username])
+            @user.password = params[:password]
+            @user.password_confirmation = params[:password]
+            if @user.save
+              @status = "Your password has been modified."
+            else
+              @status = "Oops! We are unable to set your password."
+            end
+            render :success
+            return
           end
-          render :success
-          return
-       end
-    end
-    @user = User.where(:username => params[:username])
-    render :resetpassword
-  end
-  def update
-    @user = current_user
-      if @user.update_attributes(params[:user])
-        redirect_to(@user, :notice => 'Your profile updated successfully.')
-        redirect_to root_url
-      else
-        render :action => "edit"
+        end
       end
+      @user = User.find_by_username(params[:username])
+      render :resetpassword
+    else
+      redirect_to :controller => "error", :action => "index"
+    end
   end
+
   def destroy
-    @user = User.find(params[:id])
-    @user.destroy
-    redirect_to(users_url)
+    unless params[:id].nil?
+      @user = User.find_by_id(params[:id])
+      unless @user.nil?
+        @user.destroy
+      end
+      redirect_to :controller => "links", :action => "index"
+    else
+      redirect_to error_url
+    end
   end
 
   def invitepeople
@@ -103,7 +141,7 @@ class UsersController < ApplicationController
           end 
         end
       end
-    render :text => "success"
+      render :text => "success"
     else
       render :text => "invalid parameters passed."
     end

@@ -1,34 +1,44 @@
 class UserSessionsController < ApplicationController
                       before_filter "setsubdomainasgroup"
-  # GET /user_sessions/new
-  # GET /user_sessions/new.xml
+
+  # for login  request
   def new
     @user_session = UserSession.new
     #render :layout => "links"
   end
 
-  # POST /user_sessions
-  # POST /user_sessions.xml
+  # for logout
+  def destroy
+    @user_session = UserSession.find
+    unless @user_session.nil?
+      @user_session.destroy
+    end
+    new
+    render :new
+  end
+
+  # for login  post
   def create
-    @user_session = UserSession.new(params[:user_session])
-    @user_session.remember_me = true
-    if @user_session.save
-      @current_user = @user_session
-      flash[:notice] = 'Successfully loggedin.'
-      redirect_to_root
+    unless params[:user_session].nil?
+      @user_session = UserSession.new(params[:user_session])
+      @user_session.remember_me = true
+      if @user_session.save
+        @current_user = @user_session
+        flash[:notice] = 'Successfully logged in.'
+        redirect_to_root
+      else
+        flash[:notice] = "invalid parameters passed."
+        render :action => "new"
+      end
     else
-      render :action => "new"
+        flash[:notice] = "user credentials not found."
+        new
+        render :action => "new"
     end
   end
 
-  # DELETE /user_sessions/1
-  # DELETE /user_sessions/1.xml
-  def destroy
-    @user_session = UserSession.find
-    @user_session.destroy
-    redirect_to_root
-  end
 
+  private                      
   def redirect_to_root
     redirect_to :controller => "links", :action => "index"
   end
